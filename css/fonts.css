@@ -1,0 +1,25 @@
+
+@font-face{
+
+font-family: 'Roboto';
+
+url('fonts/Roboto-Bold.ttf') format('opentype'),
+
+font-weight: bold;
+
+font-style: normal;
+
+}
+
+
+@font-face{
+
+font-family: 'Roboto';
+
+url('Roboto-Medium.ttf') format('opentype'),
+
+font-weight: normal;
+
+font-style: normal;
+
+}
