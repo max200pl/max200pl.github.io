@@ -1,47 +1,47 @@
-$(function() {
+$(function(){
+	let header = $("#header"),
+	   	 introH = $("#intro").innerHeight(),
+	   	 scrollOffset = $(window).scrollTop(),
+	   	 headerH = $("#header").innerHeight();
+	       checkScroll(scrollOffset);
 
-	//SVG Fallback
-	if(!Modernizr.svg) {
-		$("img[src*='svg']").attr("src", function() {
-			return $(this).attr("src").replace(".svg", ".png");
-		});
-	};
+	      		
+	      $(window).on("scroll",function(){
+	      	scrollOffset = $(this).scrollTop();
+	      	scrollOffset = scrollOffset+headerH; 
+	      	checkScroll(scrollOffset);
+	      });
 
-	//E-mail Ajax Send
-	//Documentation & Example: https://github.com/agragregra/uniMail
-	$("form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-			alert("Thank you!");
-			setTimeout(function() {
-				// Done Functions
-				th.trigger("reset");
-			}, 1000);
-		});
-		return false;
-	});
+	      function checkScroll(scrollOffset){
+	      	let offsetIntro= introH - headerH;
+	      	if( scrollOffset >= offsetIntro){
+	      		header.addClass("fixed");
+	      	}else{
+	      		header.removeClass("fixed");
+	      	}
+	      }
 
-	//Chrome Smooth Scroll
-	try {
-		$.browserSelector();
-		if($("html").hasClass("chrome")) {
-			$.smoothScroll();
-		}
-	} catch(err) {
+	      $("[data-scroll]").on("click", function(event) {
+	      	event.preventDefault();
 
-	};
+	      	let $this=$(this),
+	      		 blockId = $this.data('scroll'),
+	      		 blockOffset = ($(blockId).offset().top)-headerH; 
+	      		 console.log(blockOffset);
 
-	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
-	
-});
+	     			 $("html, body").animate({
+	      		scrollTop: blockOffset}, 500);
+	      });
 
-$(window).load(function() {
+	      $("#nav__toggle").on("click", function(event) {
+	      	event.preventDefault(); 
+	      	$(this).toggleClass("active");
+	      	$("#nav__list").toggleClass("show");
+	      });
 
-	$(".loader_inner").fadeOut();
-	$(".loader").delay(400).fadeOut("slow");
-
+	      $("#nav__menu").on("click", function(event) {
+	       	event.preventDefault(); 
+	      	$("#nav__toggle").toggleClass("active");
+	       	$("#nav__list").toggleClass("show");
+	      });
 });
