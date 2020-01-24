@@ -34,6 +34,9 @@ p {
 /*---- header---- */
 .fixed.header {
   position: fixed;
+}
+
+.bgColor.header__inner {
   background-color: #8661aa82;
   box-shadow: 0 0 5px 5px #8661aa82;
 }

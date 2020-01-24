@@ -1,396 +1,391 @@
 /*==========  Desktop First Method  ==========*/
 
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width: 1200px) {
+  /*HEADER*/
+  .header__inner {
+    background-color: #8661aa82;
+    box-shadow: 0 0 5px 5px #8661aa82;
+    padding: 20px 43.8px 10px 55px;
+  }
 
-    /*HEADER*/
-    .header__inner{
-        background-color: #8661aa82;
-        box-shadow: 0 0 5px 5px #8661aa82;
-        padding: 20px 43.8px 10px 55px;
-    }
+  /*GRAPH*/
+  .graph__item--left {
+    padding: 50px 65px 76px 50px;
+  }
+  .graph__title {
+    font-size: 62px;
+  }
+  .commit {
+    left: 26.8%;
+  }
 
-    /*GRAPH*/
-    .graph__item--left {
-        padding: 50px 65px 76px 50px;
-    }
-    .graph__title {
-        font-size: 62px;
-    }
-    .commit {
-        left: 26.8%;
-    }
+  /*PROCESS*/
+  .section__header {
+    padding: 50px 15px 40px;
+  }
+  .section__title {
+    font-size: 62px;
+  }
+  .section__title::after {
+    width: 60px;
+  }
+  .section__text {
+    font-size: 17px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
-    /*PROCESS*/
-    .section__header {
-        padding: 50px 15px 40px;
-    }
-    .section__title {
-        font-size: 62px;
-    }
-    .section__title::after {
-        width: 60px;
-    }
-    .section__text {
-        font-size: 17px;
-        max-width: 800px;
-        margin: 0 auto;
-    }
+  .services__leftBlock {
+    min-width: 80px;
+  }
+  .services__rightBlock {
+    padding: 30px;
+  }
 
-    .services__leftBlock{
-        min-width: 80px;
-    }
-    .services__rightBlock{
-        padding: 30px;
-    }
+  /*NEXTSTEP*/
+  .nextStep__header.section__header {
+    padding: 150px 15px 40px;
+  }
 
-    /*NEXTSTEP*/
-     .nextStep__header.section__header{
-        padding: 150px 15px 40px;
-    }
-
-    /*CONTACT_FORM*/
-    .container__formWraper{
-        max-width: 735px;
-    }
-    .contact_form li{
-        max-width: 450px;
-    }
+  /*CONTACT_FORM*/
+  .container__formWraper {
+    max-width: 735px;
+  }
+  .contact_form li {
+    max-width: 450px;
+  }
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
+@media only screen and (max-width: 992px) {
+  /*INTRO*/
+  .intro__titleFirst {
+    font-size: 63px;
+  }
+  .intro__titleMiddle {
+    font-size: 63px;
+    line-height: 1.5;
+  }
 
-    /*INTRO*/
-    .intro__titleFirst {
-        font-size: 63px;
-    }
-    .intro__titleMiddle {
-        font-size: 63px;
-        line-height: 1.5;
-    }
+  /*GRAPH*/
+  .graph__item {
+    width: 100%;
+  }
+  .graph__item--left {
+    padding: 50px 30px 50px 30px;
+  }
 
-    /*GRAPH*/
-    .graph__item {
-        width: 100%;
-    }
-    .graph__item--left {
-        padding: 50px 30px 50px 30px;
-    }
+  /*COMMIT*/
+  .commit {
+    left: 28.6%;
+  }
 
-    /*COMMIT*/
-    .commit {
-        left: 28.6%;
-    }
+  /*PROCESS*/
+  .pocess {
+    margin-bottom: 40px;
+  }
+  .pocess__text {
+    font-size: 17px;
+  }
+  .pocess__one {
+    padding: 90px 22.5px;
+  }
+  .pocess__two {
+    padding: 105px 50px;
+    max-width: 300px;
+    text-align: center;
+    background-size: 65%;
+    margin-left: -66.3px;
+  }
+  .pocess__three {
+    padding: 105px 75px;
+    margin-left: -75px;
+  }
+  .pocess__four {
+    padding: 85px 17ppx;
+  }
 
-    /*PROCESS*/
-    .pocess{
-        margin-bottom: 40px;
-    }
-    .pocess__text{
-        font-size: 17px;
-    }
-    .pocess__one{
-        padding: 90px 22.5px ;
-    }
-    .pocess__two{
-        padding: 105px 50px;
-        max-width: 300px;
-        text-align: center;
-        background-size: 65%;
-        margin-left: -66.3px;
-    }
-    .pocess__three{
-        padding: 105px 75px;
-        margin-left: -75px;
-    }
-    .pocess__four{
-        padding: 85px 17.ppx;
-    }
+  /*DESCRIPT*/
+  .descript {
+    margin-bottom: 30px;
+  }
+  .descript__header {
+    font-size: 12px;
+  }
 
-    /*DESCRIPT*/
-    .descript{
-        margin-bottom: 30px;
-    }
-    .descript__header{
-        font-size: 12px;
-    }
+  /*SERVICES*/
+  .section__services {
+    background-position: left;
+  }
+  .services__header {
+    padding: 50px 0 40px;
+  }
+  .services__title {
+    padding-left: 0;
+  }
+  .services__title.section__title::after {
+    left: 0;
+  }
+  .services__leftBlock {
+    min-width: 50px;
+  }
+  .services__rightBlock {
+    padding: 10px;
+  }
+  .services__item {
+    width: 100%;
+  }
+  .services__wrapper {
+    margin-bottom: 20px;
+  }
+  .services__text {
+    max-width: 100%;
+  }
 
-    /*SERVICES*/
-    .section__services{
-        background-position: left;
-    }
-    .services__header{
-        padding: 50px 0 40px;
-    }
-    .services__title{
-        padding-left: 0;
-    } .services__title.section__title::after{
-        left: 0;
-    }
-    .services__leftBlock{
-        min-width: 50px;
-    }
-    .services__rightBlock{
-        padding: 10px;
-    }
-    .services__item{
-        width: 100%;
-    }
-    .services__wrapper{
-        margin-bottom: 20px;
-    }
-    .services__text{
-        max-width: 100%;
-    }
+  /*NEXT_STEP*/
+  .nextStep__header.section__header {
+    padding: 100px 15px 40px;
+  }
 
-    /*NEXT_STEP*/
-    .nextStep__header.section__header{
-        padding: 100px 15px 40px;
-    }
+  /*CONTACT_FORM*/
+  .contact_form .submit {
+    margin-top: 10px;
+  }
 
-    /*CONTACT_FORM*/
-    .contact_form .submit{
-        margin-top: 10px;
-    }
-
-    /*FOOTER*/
-    .footer__wrapper {
-        margin: 0 auto 10px;
-    }
-       .footer__icon {
-        margin-top: 20px;
-    }
-    .footer__text {
-        margin-top: 0;
-    }
-    .footer__designed {
-        padding-top: 10px;
-}
-
-
+  /*FOOTER*/
+  .footer__wrapper {
+    margin: 0 auto 10px;
+  }
+  .footer__icon {
+    margin-top: 20px;
+  }
+  .footer__text {
+    margin-top: 0;
+  }
+  .footer__designed {
+    padding-top: 10px;
+  }
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width: 768px) {
+  /*HEADER*/
+  .header__inner {
+    padding: 20px 15px 10px 15px;
+  }
 
-    /*HEADER*/
-    .header__inner{
-         padding: 20px 15px 10px 15px;
-    }
+  .header__text {
+    font-size: 23px;
+  }
+  .nav {
+    font-size: 19px;
+  }
 
-    .header__text {
-        font-size: 23px;
-    }
-    .nav {
-        font-size: 19px;
-    }
+  /*INTRO*/
+  .intro__titleFirst {
+    font-size: 42.5px;
+    padding-right: 0;
+  }
+  .intro__titleMiddle {
+    font-size: 43px;
+    line-height: 1.5;
+  }
 
-    /*INTRO*/
-    .intro__titleFirst {
-        font-size: 42.5px;
-        padding-right: 0;
-    }
-    .intro__titleMiddle {
-        font-size: 43px;
-        line-height: 1.5;
-    }
+  /*GRAPH*/
+  .graph__title {
+    font-size: 53px;
+    max-width: 357px;
+  }
 
-    /*GRAPH*/
-    .graph__title {
-        font-size: 53px;
-        max-width: 357px;
-    }
+  /*PROCESS*/
+  .section__title {
+    font-size: 53px;
+  }
+  .pocess {
+    display: none;
+  }
 
-    /*PROCESS*/
-    .section__title {
-        font-size: 53px;
-    }
-    .pocess{
-        display: none;
-    }
+  /*DESCRIPT*/
+  .descript {
+    justify-content: space-around;
+  }
+  .descript__pocess {
+    width: 50%;
+    padding: 15px;
+  }
 
-     /*DESCRIPT*/
-    .descript{
-        justify-content: space-around;
-    }
-    .descript__pocess{
-        width: 50%;
-        padding: 15px;
-    }
+  /*SERVICES*/
+  .services__title {
+    text-align: left;
+    max-width: 400px;
+  }
+  .services__title.section__title::after {
+    left: 0;
+    margin: 25px 0;
+  }
+  .services__title {
+    max-width: 320px;
+  }
+  .services__text-title {
+    text-align: left;
+  }
 
-    /*SERVICES*/
-    .services__title{
-        text-align: left;
-        max-width: 400px;
-    }
-    .services__title.section__title::after{
-        left: 0;
-        margin: 25px 0;
-    }
-    .services__title{
-        max-width: 320px;
-    }
-    .services__text-title{
-        text-align: left;
-    }
+  /*NEXT_STEP*/
+  .nextStep__title.section__title {
+    font-size: 43px;
+  }
 
-    /*NEXT_STEP*/
-    .nextStep__title.section__title{
-        font-size: 43px;
-    }
-
-     /*CONTACT_FORM*/
-    .container__formWraper{
-        padding: 40px 0 45px;
-    }
-    .contact_form li{
-        margin: 15px auto 0;
-    }
-    .logo__symbol{
-        top: -16%;
-    }
-
-
+  /*CONTACT_FORM*/
+  .container__formWraper {
+    padding: 40px 0 45px;
+  }
+  .contact_form li {
+    margin: 15px auto 0;
+  }
+  .logo__symbol {
+    top: -16%;
+  }
 }
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 490px) {
+@media only screen and (max-width: 490px) {
+  /*HEADER*/
+  .header__inner {
+    padding: 10px;
+  }
+  .nav__contact,
+  .header__img__right {
+    display: none;
+  }
 
-    /*HEADER*/
-    .header__inner {
-        padding: 10px;
-    }
-    .nav__contact,.header__img__right{
-        display: none;
-    }
+  /*INTRO*/
+  .intro__titleFirst {
+    font-size: 25.3px;
+    padding-right: 10px;
+    line-height: 2;
+  }
+  .intro__titleMiddle {
+    font-size: 33px;
+  }
 
-    /*INTRO*/
-    .intro__titleFirst {
-        font-size: 25.3px;
-        padding-right: 10px;
-        line-height: 2;
-    }
-    .intro__titleMiddle {
-        font-size: 33px;
-    }
+  /*GRAPH*/
+  .graph__item {
+    width: 100%;
+  }
+  .graph__item--left {
+    padding: 15px;
+  }
+  .graph__title {
+    font-size: 40px;
+    max-width: 250px;
+  }
+  .graph__text {
+    font-size: 15px;
+  }
+  .graph__bottomText {
+    display: none;
+  }
 
-    /*GRAPH*/
-    .graph__item {
-        width: 100%;
-    }
-    .graph__item--left {
-        padding: 15px;
-    }
-    .graph__title {
-        font-size: 40px;
-        max-width: 250px;
-    }
-    .graph__text {
-        font-size: 15px;
-    }
-    .graph__bottomText {
-        display: none;
-    }
+  /*COMMIT*/
+  .commit {
+    top: 19.8%;
+    left: 25.7%;
+    padding-left: 85px;
+  }
+  .commit__img {
+    max-width: 40%;
+  }
 
-    /*COMMIT*/
-    .commit {
-        top: 19.8%;
-        left: 25.7%;
-        padding-left: 85px;
-    }
-    .commit__img {
-        max-width: 40%;
-    }
+  .commit__title {
+    font-size: 16px;
+  }
+  .commit__text {
+    font-size: 13px;
+  }
 
-    .commit__title {
-        font-size: 16px;
-    }
-    .commit__text {
-        font-size: 13px;
-    }
+  /*GRAPH*/
+  .section__header {
+    padding: 15px 0;
+  }
+  .section__title {
+    font-size: 40px;
+  }
+  .section__text {
+    font-size: 15px;
+  }
 
-    /*GRAPH*/
-    .section__header {
-        padding: 15px 0;
-    }
-    .section__title{
-         font-size: 40px;
-    }
-    .section__text {
-        font-size: 15px;
-    }
+  /*DESCRIPT*/
+  .descript {
+    justify-content: center;
+  }
+  .descript__pocess {
+    width: 100%;
+    padding: 15px 0;
+  }
+  .descript__header {
+    font-size: 17px;
+    margin-bottom: 14px;
+  }
 
-    /*DESCRIPT*/
-    .descript{
-        justify-content: center;
-    }
-    .descript__pocess{
-        width: 100%;
-        padding: 15px 0;
-    }
-    .descript__header{
-        font-size: 17px;
-        margin-bottom: 14px;
-    }
+  /*SERVICES*/
+  .services__title {
+    max-width: 300px;
+  }
 
-    /*SERVICES*/
-    .services__title{
-        max-width: 300px;
-    }
+  /*NEXT_STEP*/
+  .logo__symbol {
+    top: -21%;
+  }
+  .nextStep__header.section__header {
+    padding: 80px 0 20px;
+  }
+  .nextStep__title.section__title {
+    font-size: 30px;
+  }
 
-    /*NEXT_STEP*/
-    .logo__symbol{
-        top: -21%;
-    }
-    .nextStep__header.section__header {
-        padding: 80px 0 20px;
-    }
-    .nextStep__title.section__title{
-        font-size: 30px;
-    }
-
-     /*CONTACT_FORM*/
-    .contact_form li {
-        max-width: 375px;
-    }
-    .contact_form input, .contact_form textarea {
-        max-width: 240px;
-    }
-    .container__formWraper {
-        padding: 10px 0 15px;
-    }
+  /*CONTACT_FORM*/
+  .contact_form li {
+    max-width: 375px;
+  }
+  .contact_form input,
+  .contact_form textarea {
+    max-width: 240px;
+  }
+  .container__formWraper {
+    padding: 10px 0 15px;
+  }
 }
 
-
 /* Custom, iPhone Retina */
-@media only screen and (max-width : 320px) {
-    /*GRAPH*/
-    .graph__title {
-        font-size: 30px;
-        max-width: 190px;
-    }
+@media only screen and (max-width: 320px) {
+  /*GRAPH*/
+  .graph__title {
+    font-size: 30px;
+    max-width: 190px;
+  }
 
-    /*PROCESS*/
-    .section__title {
-        font-size: 30px;
-    }
-    .graph__item {
-        padding: 15px;
-    }
+  /*PROCESS*/
+  .section__title {
+    font-size: 30px;
+  }
+  .graph__item {
+    padding: 15px;
+  }
 
-    /*SERVICES*/
-    .services__title{
-        max-width: 240px;
-    }
+  /*SERVICES*/
+  .services__title {
+    max-width: 240px;
+  }
 
-    /*NEXT_STEP*/
-    .nextStep__title.section__title {
-        font-size: 25.8px;
-    }
+  /*NEXT_STEP*/
+  .nextStep__title.section__title {
+    font-size: 25.8px;
+  }
 
-    /*CONTACT_FORM*/
-    .contact_form input, .contact_form textarea {
-           max-width: 180px;
-    }
+  /*CONTACT_FORM*/
+  .contact_form input,
+  .contact_form textarea {
+    max-width: 180px;
+  }
 }
