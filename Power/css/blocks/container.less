@@ -1,0 +1,142 @@
+// main: ../style.less
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-right: 1rem; // 15px
+    padding-left: 1rem; // 15px
+    position: relative;
+
+    @media @notebook {
+        max-width: 1200px;
+    }
+}
+
+
+
+.container__content {
+    width: 48.4%;
+
+    @media @tablet {
+        width: 100%;
+    }
+
+    @media @mobile {
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+
+.container__photo {
+    max-width: 100%;
+    height: auto;
+
+    display: block;
+    position: relative;
+
+    &--right {
+        position: absolute;
+        right: -232px;
+        bottom: -800px;
+        z-index: 1;
+
+        @media @notebook {
+            width: 100%;
+        }
+
+        @media @tablet {
+            width: 100%;
+        }
+
+        @media @mobile {
+            width: 100%;
+        }
+    }
+}
+
+
+.container__subtitle {
+    font-size: 3.3rem;
+    font-weight: 300;
+    margin-bottom: 32px;
+    color: @black;
+}
+
+.container__title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 21.5px;
+    color: @black;
+
+    @media @tablet {
+        font-size: 2rem;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 4px;
+        margin-top: 26.5px;
+        background-color: @red;
+
+        @media @tablet {
+            margin: 26.6px 0 21.5px;
+        }
+
+        @media @mobile {
+            margin: 25px auto 0;
+        }
+    }
+}
+
+
+.container__text {
+    font-size: 1.06rem;
+    font-weight: 300;
+    color: @gray-light;
+    margin-bottom: 71px;
+
+    @media @notebook {
+        margin-bottom: 25px;
+    }
+
+    @media @tablet {
+        font-size: 1rem;
+        max-width: 450px;
+
+
+    }
+
+    @media @mobile {
+        margin: 0 auto 25px;
+    }
+
+
+}
+
+.container__nav {
+    position: relative;
+    z-index: 3;
+    width: 51.6%;
+    display: flex;
+    justify-content: flex-end;
+
+    &--reviews {
+        width: 40%;
+    }
+
+    @media @mobile {
+        justify-content: right;
+        flex-wrap: wrap;
+
+        width: 100%;
+    }
+
+    @media @mobile-sm {
+        justify-content: center;
+    }
+}

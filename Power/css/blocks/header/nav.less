@@ -1,0 +1,119 @@
+// main: ../../style.less
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+
+    height: 100%;
+
+    align-items: center;
+
+    @media @tablet {
+        display: none;
+        flex-direction: column;
+
+        position: absolute;
+        top: 120%;
+        left: 0;
+        text-align: center;
+        margin: auto;
+        left: 0;
+        right: 0;
+        width: 95%;
+        height: auto;
+
+        background: #767676;
+        box-shadow: 3px 3px 42px #000;
+        border: 1px solid #0000001a;
+    }
+}
+
+.nav__link {
+    font-size: 1.2rem;
+    font-weight: 300;
+
+    position: relative;
+
+    margin-left: 3.5rem;
+
+    text-decoration: none;
+
+    color: #000;
+
+    cursor: pointer;
+
+
+
+    &:after {
+        position: absolute;
+        z-index: 1;
+        bottom: -5px;
+        left: 0;
+
+        width: 0;
+        height: 3px;
+
+        content: "";
+        transition: width 0.2s linear;
+
+        background-color: @red;
+    }
+
+    &:hover:not(.nav__link--btn) {
+        &:after {
+            width: 100%;
+        }
+    }
+
+    &--btn {
+        padding: 1rem 3rem;
+        background-color: @red;
+
+        transition: background-color 0.2s linear, 0.2s color linear;
+
+        border: 2px solid @red;
+        border-radius: 5px;
+
+        color: @white;
+
+        &:hover {
+            color: @red;
+            background-color: @white;
+        }
+
+        @media @tablet {
+            background-color: #fff;
+            padding: 0;
+            transition: none;
+            border: none;
+            color: black;
+        }
+    }
+
+    @media @perComputer {
+        font-size: 1rem;
+        margin-left: 2rem;
+        font-weight: 400;
+    }
+
+    @media @notebook {
+        font-size: 1rem;
+        margin-left: 0.98rem;
+        font-weight: 400;
+    }
+
+    @media @tablet {
+        font-size: 1.2rem;
+        margin-left: 0;
+        font-weight: 200;
+        padding: 0px 20px;
+        margin: 5px;
+    }
+
+
+    /*  @media @mobile {
+        width: 100%;
+        margin-left: 0;
+        padding: .5rem 1rem;
+    }*/
+}

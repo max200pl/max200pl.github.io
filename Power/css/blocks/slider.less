@@ -1,0 +1,163 @@
+// main: ../style.less
+
+.card__item {
+    margin-top: 60px;
+    max-width: 362px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+
+    @media @notebook {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    @media @mobile-sm {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+
+}
+
+.card__img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card__block-footer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: @red;
+    border-radius: 0 0 5px 5px;
+
+    padding: 20px 30px;
+
+
+    @media @notebook {
+        width: 100%;
+    }
+
+    @media @tablet {
+        width: 100%;
+    }
+
+    @media @mobile {
+        width: 100%;
+    }
+}
+
+
+
+.block-text__date {
+    display: flex;
+}
+
+.block-text__name {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: @white;
+}
+
+span {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: @white;
+    padding-left: 10px;
+}
+
+.wrapper__sl {
+    position: absolute;
+    left: 15px;
+    z-index: 1000;
+    max-width: 2000px;
+
+
+    @media @notebook {
+        position: relative;
+        left: 0;
+        max-width: 1200px;
+        margin: 0 auto 185px;
+
+    }
+
+    @media @tablet {
+        width: 100%;
+        margin-bottom: 120px;
+
+    }
+
+
+}
+
+/*настройки слайдера*/
+
+
+/*подымание центрального слайда */
+
+.slick-current {
+    /*    .slick-current центрального слайд */
+    transform: translateY(-35px);
+    transition: transform .5s linear;
+    position: relative;
+    z-index: 1;
+
+    @media @mobile {
+        transform: translateY(0);
+    }
+}
+
+//.slick-current:after {
+//content: "";
+//width: 100%;
+//height: 100%;
+//background: url("../../images/our_classes/bg_points_red.svg") no-repeat;
+//top: 132px;
+//right: -65px;
+//position: absolute;
+//z-index: -1;
+//}
+
+
+/*текущие слайды */
+
+.slick-slide {
+    display: block;
+
+    padding-top: 130px;
+
+    @media @tablet {
+        padding-top: 70px;
+    }
+
+    @media @mobile {
+        padding-top: 25px;
+    }
+}
+
+.btn__slider {
+    margin: 0 10px 0 67px;
+
+    @media @tablet {
+        margin: 0 10px 0;
+    }
+}
+
+
+.btn__slider-Prev {
+    padding-right: 40px;
+}
+
+
+.slider__wrapper {
+    display: block;
+    position: relative;
+    height: 558px;
+
+    @media @tablet {
+        height: 388px;
+    }
+}

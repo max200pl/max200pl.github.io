@@ -1,0 +1,180 @@
+// main: ../style.less
+
+.pricing {
+    padding-bottom: 87px;
+}
+
+.pricing__content {
+    padding-top: 20px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1160px;
+}
+
+.pricing__title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 43.5px;
+    color: @black;
+    margin-top: 20px;
+
+    &:after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 4px;
+        background-color: @red;
+        margin: 24.5px auto 0;
+    }
+}
+
+.pricing__text {
+    font-size: 1.06rem;
+    font-weight: 300;
+
+    margin-bottom: 112px;
+
+    color: @gray-light;
+
+    @media @tablet {
+        margin-bottom: 60px;
+    }
+
+    @media @mobile {
+        margin-bottom: 0;
+    }
+
+}
+
+
+.icon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+
+}
+
+.icon:hover {
+    fill: red;
+}
+
+.pricing__swithc {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    max-width: 290px;
+    margin: 45px auto 126px;
+
+    @media @tablet {
+        margin: 45px auto 60px;
+    }
+
+    &-text {
+        padding-top: 5px;
+        font-size: 1.06rem;
+        font-weight: 300;
+        color: @black;
+
+    }
+}
+
+.pricing__plan {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+
+    @media @tablet {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+
+.pricing__item-img {
+    width: 100%;
+    height: auto;
+    max-width: 190px;
+    margin-bottom: 82.4px;
+
+    @media @notebook {
+        margin-bottom: 52.4px;
+    }
+}
+
+.pricing__text-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #000;
+
+    margin-bottom: 13px;
+}
+
+.pricing__text-subtitle {
+    font-size: 1.06rem;
+    font-weight: 300;
+    line-height: 1;
+    color: @gray-light;
+
+    &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: @gray-light;
+        margin: 42.5px 0 31.5px;
+    }
+
+    @media @notebook {
+        font-size: 0.95rem;
+    }
+
+}
+
+.pricing__cost {
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    color: #000;
+
+    margin-bottom: 89px;
+
+    @media @notebook {
+        margin-bottom: 59px;
+    }
+}
+
+.pricing__plan-item {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33.3333%;
+    align-items: center;
+    text-align: center;
+
+    max-width: 456px;
+    min-width: 300px;
+
+    border: 2px solid #CCCCCC;
+    border-radius: 7px;
+
+    padding: 106px 62px 76px;
+
+    margin: 15px;
+
+    &:hover {
+        border: 2px solid #F92524;
+        transition: border-color .2s linear;
+
+    }
+
+    @media @perComputer {
+        padding: 50px 62px 50px;
+    }
+
+    @media @notebook {
+        padding: 25px 30px 25px;
+    }
+
+    @media @tablet {
+        flex-basis: 100%;
+    }
+}
