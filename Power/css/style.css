@@ -321,7 +321,7 @@ body {
 @media (max-width:767px) {
   .nav {
     width: 85%;
-    height: 50%;
+    height: 60%;
     padding: 20px;
   }
 }
