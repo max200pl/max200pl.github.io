@@ -307,6 +307,7 @@ body {
     flex-direction: column;
     position: relative;
     text-align: center;
+    padding: 20px;
     margin: 45px auto;
     left: 0;
     right: 0;
@@ -315,6 +316,13 @@ body {
     background: #767676;
     box-shadow: 3px 3px 42px #181818;
     border: 1px solid #0000001a;
+  }
+}
+@media (max-width:767px) {
+  .nav {
+    width: 85%;
+    height: 43.1%;
+    padding: 20px;
   }
 }
 .nav__link {
