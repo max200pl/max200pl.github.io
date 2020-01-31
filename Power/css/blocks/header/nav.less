@@ -1,4 +1,24 @@
 // main: ../../style.less
+.nav__modal {
+    display: flex;
+
+    @media @tablet {
+        display: none;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        overflow: auto;
+        background-color: rgba(6, 15, 49, 0.11);
+        position: fixed;
+        top: 107.1px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    @media @mobile {
+        top: 87.1px;
+    }
+}
 
 .nav {
     display: flex;
@@ -9,22 +29,24 @@
     align-items: center;
 
     @media @tablet {
-        display: none;
-        flex-direction: column;
 
-        position: absolute;
-        top: 120%;
-        left: 0;
+        flex-direction: column;
+        position: relative;
+
+
         text-align: center;
-        margin: auto;
+
+
+        margin: 45px auto;
         left: 0;
         right: 0;
-        width: 95%;
-        height: auto;
+        width: 65%;
+        height: 23.1%;
 
         background: #767676;
-        box-shadow: 3px 3px 42px #000;
+        box-shadow: 3px 3px 42px @black;
         border: 1px solid #0000001a;
+
     }
 }
 
@@ -38,11 +60,9 @@
 
     text-decoration: none;
 
-    color: #000;
+    color: @black;
 
     cursor: pointer;
-
-
 
     &:after {
         position: absolute;
@@ -79,10 +99,14 @@
         &:hover {
             color: @red;
             background-color: @white;
+
+            @media @tablet {
+                background-color: @red;
+            }
         }
 
         @media @tablet {
-            background-color: #fff;
+            background-color: @red;
             padding: 0;
             transition: none;
             border: none;
@@ -103,17 +127,11 @@
     }
 
     @media @tablet {
+        color: @white;
         font-size: 1.2rem;
         margin-left: 0;
         font-weight: 200;
         padding: 0px 20px;
-        margin: 5px;
+        margin: 5px
     }
-
-
-    /*  @media @mobile {
-        width: 100%;
-        margin-left: 0;
-        padding: .5rem 1rem;
-    }*/
 }

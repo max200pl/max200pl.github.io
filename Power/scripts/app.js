@@ -1,50 +1,57 @@
-$(function () {
-     let header = $("#header"),
-          introH = $("#intro").outerHeight(),
-          scrollOffset = $(window).scrollTop(),
-          headerH = $("#header").outerHeight();
+$(function() {
+  let header = $("#header"),
+    introH = $("#intro").outerHeight(),
+    scrollOffset = $(window).scrollTop(),
+    headerH = $("#header").outerHeight();
 
+  checkScroll(scrollOffset);
 
-     checkScroll(scrollOffset);
+  $(window).on("scroll", function() {
+    scrollOffset = $(this).scrollTop();
+    checkScroll(scrollOffset);
+  });
 
-     $(window).on("scroll", function () {
-          scrollOffset = $(this).scrollTop();
-          checkScroll(scrollOffset);
-     });
+  function checkScroll(scrollOffset) {
+    let offsetIntro = headerH;
 
-     function checkScroll(scrollOffset) {
-          let offsetIntro = headerH;
+    if (scrollOffset >= offsetIntro) {
+      header.addClass("fix");
+      $(".nav__link").css("color", "#fff");
+    } else {
+      header.removeClass("fix");
+      $(".nav__link").css("color", "");
+    }
+    if (scrollOffset <= headerH) {
+      $("#nav__modal").removeClass("show");
+    }
+  }
 
-          if (scrollOffset >= offsetIntro) {
-               header.addClass("fix");
-               $(".intro__content").css("margin-top", "300px");
-               $(".nav__link").css("color", "#fff");
+  $("[data-scroll]").on("click", function(event) {
+    event.preventDefault();
 
-          } else {
-               header.removeClass("fix");
-               $(".nav__link").css("color", "#000");
-               $(".intro__content").css("margin-top", "");
-          }
-     };
+    let $this = $(this),
+      blockId = $this.data("scroll"),
+      blockOffset = $(blockId).offset().top - headerH;
 
-     $("[data-scroll]").on("click", function (event) {
-          event.preventDefault();
+    $("html, body").animate(
+      {
+        scrollTop: blockOffset - 20
+      },
+      600
+    );
+  });
 
-          let $this = $(this),
-               blockId = $this.data("scroll"),
-               blockOffset = $(blockId).offset().top - headerH;
-
-          $("html, body").animate({
-                    scrollTop: blockOffset - (20)
-               },
-               600
-          );
-     });
-
-     // скрываем сменю при нажати
-
-     $("#button").on("click", function (event) {
-          event.preventDefault();
-          $("#nav").toggleClass("show");
-     });
+  // скрываем сменю при нажати
+  $("#button").on("click", function(event) {
+    event.preventDefault();
+    $("#nav__modal").toggleClass("show");
+    $("#header").addClass("fix");
+  });
+  // скрываем nav__modal
+  $("#nav__modal").bind("click", function(e) {
+    var target = e.target ? e.target : e.srcElement;
+    if ($(target).is(this)) {
+      $(this).removeClass("show");
+    }
+  });
 });
