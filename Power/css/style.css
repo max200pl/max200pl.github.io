@@ -620,7 +620,7 @@ body {
 @media (max-width:767px) {
   .intro__content {
     text-align: center;
-    margin: 100px auto;
+    margin: 20px auto;
   }
 }
 .intro__title {
