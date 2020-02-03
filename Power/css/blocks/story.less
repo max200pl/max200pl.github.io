@@ -28,10 +28,11 @@
         margin-bottom: 60px;
         background-size: 40% 55%;
         background-position: 20px bottom;
-
     }
 
+
     @media @mobile {
+        margin-bottom: 0;
         background: none;
     }
 }
@@ -47,13 +48,16 @@
     display: flex;
     flex-direction: column;
     width: 700px;
-    margin-top: 20px;
+    margin-top: 70px;
 
     @media @notebook {
         width: 100%;
+        margin-top: 50px;
     }
 
-    @media @mobile-sm {}
+    @media @mobile-sm {
+        margin-top: 20px;
+    }
 
 
 }
