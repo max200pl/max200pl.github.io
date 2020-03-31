@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>Pantoflexr</title>
+     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic"
+          rel="stylesheet">
+     <meta name="theme-color" content="#fff">
+     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+     <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+     <link rel="stylesheet" href="styles/main.min.css">
+</head>
+
+<body>
+
+     <header class="header" id="header">
+          <div class="container">
+
+               <div class="header__inner">
+                    <div class="logo">
+                         <div class="logo__img-icon img">
+                              <img src="img/header/logo.png" alt="logo">
+                         </div>
+                         <div class="logo__img-name img">
+                              <img src="img/header/logo_text.png" alt="logo_text">
+                         </div>
+                    </div>
+
+                    <div class="burger" id="button">
+                         <img class="burger__icon" src="img/header/burger/burger.svg" alt="">
+                    </div>
+
+                    <div class="nav__modal" id="nav__modal">
+                         <nav class="nav" id="nav">
+                              <a class="nav__link" data-scroll="#intro">Отзывы</a>
+                              <a class="nav__link" data-scroll="#story">Состав</a>
+                              <a class="nav__link" data-scroll="#classes">Оплата и доставка</a>
+                         </nav>
+                    </div>
+               </div>
+          </div>
+     </header>
+     <section class="intro" id="intro">
+          <div class="container">
+               <div class="intro__inner">
+                    <div class="intro__content">
+                         <div class="intro__header">
+                              <h1 class="intro__title">Укрепите <br> здоровье ваших <br> суставов</h1>
+                              <h2 class="intro__subtitle">и верните им эластичность <br> при остеоартрите</h2>
+                         </div>
+
+
+                         <div class="healing">
+                              <div class="healing-item">
+                                   <img src="img/intro/intro_point.png" alt="point" class="healing-item__img">
+                                   <span class="healing-item__text">Помогает снять боль</span>
+                              </div>
+                              <div class="healing-item">
+                                   <img src="img/intro/intro_point.png" alt="point" class="healing-item__img">
+                                   <span class="healing-item__text">Устраняет скованность суставов</span>
+                              </div>
+                              <div class="healing-item">
+                                   <img src="img/intro/intro_point.png" alt="point" class="healing-item__img">
+                                   <span class="healing-item__text">Уменьшает отеки</span>
+                              </div>
+                         </div>
+
+                    </div>
+
+                    <div class="feedback">
+                         <div class="feedback__title">Закажите сейчас по акции</div>
+                         <div class="feedback__price">
+                              <div class="feedback__discount">
+                                   <div class="feedback__discount-title">Старая цена</div>
+
+                                   <div class="feedback__discount-subtitle">
+                                        1980<span>руб.</span>
+                                        <img class="feedback__discount-img" src="img/intro/intro_feedback_crossOut.svg"
+                                             alt="">
+                                   </div>
+                              </div>
+
+                              <div class="feedback__cost">
+                                   <div class="feedback__cost-title">Ваша цена</div>
+                                   <div class="feedback__cost-subtitle">
+                                        990<span>руб.</span>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <form class="form" id="myform" role="form" novalidate="novalidate">
+
+                              <!-- Hidden Required Fields -->
+                              <input type="hidden" name="project_name" value="Pantoflex">
+                              <input type="hidden" name="admin_email" value="pantoflex@gmail.com">
+                              <input type="hidden" name="form_subject" value="Заявка с формы">
+                              <!-- END Hidden Required Fields -->
+
+                              <div class="form__group">
+                                   <input class="form__input form__img-name" name="name" type="text" id="input-name"
+                                        placeholder="Имя" tabindex="2" required>
+                              </div>
+
+                              <div class="form__group">
+                                   <input class="form__input form__img-phone" type="tel" name="phone"
+                                        placeholder="Телефон" required tabindex="3" minlength="9" maxlength="13" />
+                              </div>
+
+                              <div class="form__group">
+                                   <button id="btn-form" class="btn" type="submit">
+                                        <span class="btn__title">Заказать</span> <br> со скидкой
+                                   </button>
+                                   <div class="btn__footer"></div>
+                              </div>
+                         </form>
+
+                    </div>
+
+                    <div class="intro_women-point">
+                         <img class="intro_img" src="img/intro/intro_women-point.png" alt="">
+                    </div>
+
+                    <div class="intro_packaging">
+                         <img class="img" src="img/intro/intro_packaging.png" alt="">
+                    </div>
+
+
+               </div>
+
+          </div>
+     </section>
+     <section class="symptoms" id="symptoms">
+          <div class="container">
+               <div class="symptoms__title">
+                    Симптомы остеоартрита <span>не пройдут</span> сами по себе
+               </div>
+
+               <div class="symptoms__img-men">
+                    <img class="img" src="img/symptoms/symptoms_men.png" alt="men-symptoms">
+               </div>
+
+               <div class="problems">
+
+                    <div class="problems__item">
+                         <div class="problems__img-item">
+                              <img class="img" src="img/symptoms/1.png" alt="problems">
+                         </div>
+                         <div class="problems__conten">
+                              <div class="problems__title">Боль</div>
+                              <div class="problems__description">Токсины, кристаллы солей и другие продукты
+                                   воспалительных
+                                   процессов раздражают нервные окончания суставной капсулы.
+                              </div>
+                         </div>
+                    </div>
+                    <div class="problems__item">
+                         <div class="problems__img-item">
+                              <img class="img" src="img/symptoms/2.png" alt="problems">
+                         </div>
+                         <div class="problems__conten">
+                              <div class="problems__title">Скованность</div>
+                              <div class="problems__description">Из-за воспаления синовиальной оболочки сустава,
+                                   вырабатывается мало
+                                   синовиальной жидкости, которая выступает смазкой для элементов сустава.
+                              </div>
+                         </div>
+                    </div>
+                    <div class="problems__item">
+                         <div class="problems__img-item">
+                              <img class="img" src="img/symptoms/3.png" alt="problems">
+                         </div>
+                         <div class="problems__conten">
+                              <div class="problems__title">Отек</div>
+                              <div class="problems__description">Из-за воспаления и деформации суставной сумки
+                                   синовиальная жидкость
+                                   выходит за ее пределы.
+                              </div>
+                         </div>
+                    </div>
+
+                    <div class="warning">
+                         <div class="warning__img">
+                              <img src="img/symptoms/4.png" alt="warning">
+                         </div>
+
+                         <div class="warning__description">
+                              Запущенный остеоартри<br>
+                              входит в десятку самых частых <br>
+                              причин инвалидности
+                         </div>
+                    </div>
+
+               </div>
+
+          </div>
+          <div class="symptoms__img-bg">
+               <img class="img" src="img/symptoms/symptoms_bg.png" alt="men-symptoms">
+          </div>
+
+     </section>
+     <section class="discount">
+          <div class="container">
+               <div class="discount__title">Крем <span>Pantoflex</span></div>
+               <div class="discount__text">поможет избавиться от боли,<br>
+                    снять отеки и вернет суставам <br> подвижность</div>
+               <div class="discount__btn">
+                    <button id="btn-form" class="btn" type="submit">
+                         <span class="btn__title">Заказать</span> <br> со скидкой
+                    </button>
+                    <div class="btn__footer"></div>
+               </div>
+               <div class="discount__img">
+                    <img class="img" src="img/discount/discount_packaging.png" alt="">
+               </div>
+          </div>
+     </section>
+     <section class="composition">
+          <div class="container">
+               <div class="composition__wrapper">
+                    <div class="composition__block">
+                         <div class="composition__title">Состав <span>Pantoflex</span>
+                              помогает избавиться<br>
+                              от всех симптомов
+                              остеоартрита</div>
+                         <div class="composition__img">
+                              <img src="img/composition/composition_bg.png" alt="composition">
+                         </div>
+                    </div>
+
+                    <div class="types">
+                         <div class="types__item-row">
+                              <div class="types__item">
+                                   <div class="types__name">
+                                        Облепиха
+                                   </div>
+                                   <div class="types__img">
+                                        <img src="img/composition/1.jpg" alt="types">
+                                   </div>
+                                   <div class="types__text">
+                                        Противостоит воспалению суставов, снимает боль,
+                                        способствует продлению
+                                        работоспособности суставов.
+                                   </div>
+                              </div>
+                              <div class="types__item">
+                                   <div class="types__name">
+                                        Календула
+                                   </div>
+                                   <div class="types__img">
+                                        <img src="img/composition/2.jpg" alt="types">
+                                   </div>
+                                   <div class="types__text">
+                                        Стимулирует
+                                        восстановление тканей,
+                                        ускоряет процесс восстановления сустава.
+                                   </div>
+                              </div>
+                         </div>
+
+
+                         <div class="types__item-row">
+                              <div class="types__item">
+                                   <div class="types__name">
+                                        Каштан
+                                   </div>
+                                   <div class="types__img">
+                                        <img src="img/composition/3.jpg" alt="types">
+                                   </div>
+                                   <div class="types__text">
+                                        Снимает отеки, обладает антиоксидантными свойствами, улучшает микроциркуляцию
+                                        крови
+                                        в суставах.
+                                   </div>
+                              </div>
+
+                              <div class="types__item">
+                                   <div class="types__name">
+                                        Cульфаты
+                                   </div>
+                                   <div class="types__img">
+                                        <img src="img/composition/4.jpg" alt="types">
+                                   </div>
+                                   <div class="types__text">
+                                        Укрепляет хрящевые ткани сустава, обеспечивает гладкое скольжение элементов
+                                        сустава, способствует
+                                        восстановлению хряща.
+                                   </div>
+                              </div>
+
+                         </div>
+
+                    </div>
+
+               </div>
+          </div>
+     </section>
+</body>
+
+</html>
