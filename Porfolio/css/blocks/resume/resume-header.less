@@ -1,0 +1,127 @@
+// main: ../../style.less
+
+.resume-header {
+     display: flex;
+
+     justify-content: space-between;
+
+     padding: 20px 40px;
+
+     font-size: 16px;
+     font-family: "Bitter";
+
+
+     background-color: @blue;
+
+     @media @tablet {
+          font-size: 14px;
+          padding: 20px 20px;
+     }
+
+     @media @mobile {
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-around;
+
+          // :nth-child(1) {
+          //      order: 2;
+          // }
+
+
+          :nth-child(2) {
+               order: 1;
+          }
+
+          :nth-child(3) {
+               order: 2;
+          }
+     }
+
+     @media @mobile-sm {
+          // flex-wrap: wrap;
+
+          // &:nth-child(2) {
+          //      order: 2;
+          // }
+
+          // &:nth-child(3) {
+          //      order: 1;
+          // }
+     }
+}
+
+.resume-header__text {
+
+     font-weight: 400;
+     color: #fff;
+
+     padding-right: 5px;
+     max-width: 730px;
+
+     @media @mobile {
+          max-width: 400px;
+     }
+}
+
+.resume-header__img {
+     display: block;
+     max-width: 120px;
+     width: 100%;
+     height: auto;
+
+     padding-right: 10px;
+
+     @media @mobile {
+          display: none;
+     }
+
+}
+
+.resume-header__title {
+     font-size: 28px;
+     line-height: 1.5em;
+     font-weight: 400;
+}
+
+.resume-header__subtitle {
+     line-height: 1.2em;
+     font-weight: 400;
+
+     @media @mobile {
+          display: none;
+     }
+}
+
+.resume-header__info {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     padding: 10px 0 10px;
+
+     line-height: 1.2em;
+     font-weight: 400;
+     border-left: 1px solid @white;
+
+     @media @mobile-sm {
+          display: none;
+     }
+}
+
+.resume-header__email {
+     display: flex;
+     flex-wrap: wrap;
+     margin-bottom: 10px;
+
+     &>span {
+          padding-left: 10px;
+     }
+}
+
+.resume-header__phone {
+     display: flex;
+     flex-wrap: wrap;
+
+     &>span {
+          padding-left: 10px;
+     }
+}

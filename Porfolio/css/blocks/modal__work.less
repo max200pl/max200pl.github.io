@@ -1,0 +1,157 @@
+// main: ../style.less
+
+.modal-work {
+    display: flex;
+
+    @media @mobile {
+        justify-content: center;
+    }
+
+}
+
+.modal-work__preview {
+    flex-basis: 65%;
+    position: relative;
+    overflow: hidden;
+    padding-right: 1rem;
+
+
+    @media @mobile {
+        display: none;
+    }
+}
+
+.modal-work__photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    transform: translate3d(-50%, -50%, 0);
+
+    &--tab {
+        max-width: 50%;
+    }
+
+}
+
+.modal-work__content {
+    flex-basis: 35%;
+    padding: 20px;
+    position: relative;
+
+    border: 1px solid white;
+
+    min-width: 320px;
+}
+
+.modal-work__header {
+    margin-bottom: 2.2rem;
+}
+
+.modal-work__title {
+    margin-bottom: .2rem;
+
+    font-size: 2.12rem;
+    color: @white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.modal-work__info {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: @blue;
+    text-transform: uppercase;
+}
+
+.modal-work__info-divider {
+    margin: 0 1rem;
+}
+
+
+.modal-work__client-title {
+    margin-bottom: .2rem;
+
+    font-size: 1.06rem;
+    color: @white;
+    font-weight: 700;
+}
+
+.modal-work__client-company {
+    font-size: .94rem;
+    font-style: italic;
+    color: @blue;
+}
+
+.modal-work__text {
+    &>h2 {
+        color: @blue;
+        line-height: 1.2;
+        margin-bottom: .5rem;
+    }
+
+    margin-bottom: 30px;
+
+    font-size: .8rem;
+    line-height: 2;
+    color: @white;
+    font-weight: 300;
+
+    @media @mobile {
+        margin-bottom: 0;
+    }
+}
+
+.modal-work__footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.8rem 1rem;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.modal-work__btn-link {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-decoration: underline;
+
+    padding: 0 0 15px 0;
+    font-family: inherit;
+    font-size: 1rem;
+    color: @white;
+    text-transform: uppercase;
+
+    &>a {
+        color: inherit;
+    }
+
+    &>img {
+        padding-left: 5px;
+    }
+}
+
+.modal-work__btn {
+
+    padding: 0;
+
+    background: none;
+    border: 0;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: .94rem;
+    color: @white;
+    text-transform: uppercase;
+
+    @media @mobile {
+        display: none;
+    }
+}
