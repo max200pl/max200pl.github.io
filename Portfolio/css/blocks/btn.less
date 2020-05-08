@@ -1,0 +1,71 @@
+// main: ../style.less
+
+.btn {
+    font-family: inherit;
+    font-size: 1.1rem;
+    line-height: 1.1;
+
+    display: inline-block;
+
+    min-width: 170px;
+    padding: 1.05em 1.8em;
+
+    transition: background-color .2s linear,
+    color .2s linear,
+    box-shadow .2s linear,
+    border-color .2s linear;
+
+    text-align: center;
+    vertical-align: top;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    color: @white;
+    border: 1px solid @white;
+    border-radius: 1.8em;
+
+    .transformBtn;
+
+    &--hide {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    +.btn {
+        margin-left: 15px;
+    }
+
+    // Modificator
+    &--sm {
+        min-width: 0;
+        padding: 0.6em 1.1em;
+        font-size: 0.94rem;
+        font-weight: bold;
+        border-width: 2px;
+        border-color: @white;
+    }
+
+    &--thin {
+        min-width: 145px;
+        font-size: .8rem;
+    }
+
+    @media @tablet {
+        font-size: 1rem;
+        padding: 1.0em 1.5em;
+        min-width: 140px;
+    }
+
+    @media @mobile-sm {
+        display: block;
+        width: 100%;
+
+        +.btn {
+            margin-left: 0;
+            margin-top: 1rem;
+        }
+    }
+
+}

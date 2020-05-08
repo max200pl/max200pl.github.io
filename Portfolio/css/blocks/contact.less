@@ -1,0 +1,51 @@
+// main: ../style.less
+
+.contact {
+    display: flex;
+
+    background: url(/images/modal/cellphone-cellular-communicatio-263564.jpg) right center no-repeat;
+    background-size: contain;
+    background: linear-gradient(to right top, #051937, #000, #008793, #bf0000, #f00);
+}
+
+.contact__content {
+    padding: 2rem;
+    width: 100%;
+
+
+    @media @mobile-sm {
+        padding: 1.5rem;
+    }
+}
+
+.contact__info {
+    font-size: .94rem;
+    font-weight: 300;
+
+    margin: 2rem 0 3rem;
+    padding: 0;
+
+    list-style: none;
+
+    color: @white;
+
+    @media @mobile-sm {
+        margin: 1.5rem 0 2.5rem;
+    }
+}
+
+.contact__info-item {
+    display: flex;
+
+    margin-bottom: .75rem;
+
+    align-items: center;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.contact__info-icon {
+    margin-right: .75rem;
+}
