@@ -148,7 +148,7 @@ body.no-scroll {
 @media (max-width:565px) {
   .slick-dots {
     bottom: 0;
-    top: -10px;
+    top: -14.5px;
   }
 }
 .slick-dots li {
@@ -1363,6 +1363,14 @@ body.no-scroll {
 }
 .experience__summary {
   display: none;
+}
+.experience__summary > h2 {
+  font-size: 1.4rem;
+}
+@media (max-width:767px) {
+  .experience__summary > h2 {
+    font-size: 1.2rem;
+  }
 }
 .skills {
   display: block;
