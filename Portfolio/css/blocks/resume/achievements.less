@@ -52,7 +52,7 @@
 
 
      @media @mobile-sm {
-          flex-basis: 85%;
+          flex-basis: 100%;
      }
 
 
@@ -101,7 +101,19 @@
 
 
 .achievements__summary {
-     @media @mobile {
-          display: none;
+     &>h2 {
+          font-size: 1rem;
+          margin-bottom: .5rem;
      }
+
+     &>p {
+          margin-bottom: .5rem;
+     }
+
+     &>a {
+          display: block;
+          color: white;
+          padding-bottom: 10px;
+     }
+
 }

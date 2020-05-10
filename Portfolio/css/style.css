@@ -1549,7 +1549,7 @@ body.no-scroll {
 }
 @media (max-width:565px) {
   .achievements__description {
-    flex-basis: 85%;
+    flex-basis: 100%;
   }
 }
 .achievements__description::before {
@@ -1585,10 +1585,17 @@ body.no-scroll {
     padding-bottom: 5px;
   }
 }
-@media (max-width:767px) {
-  .achievements__summary {
-    display: none;
-  }
+.achievements__summary > h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.achievements__summary > p {
+  margin-bottom: 0.5rem;
+}
+.achievements__summary > a {
+  display: block;
+  color: white;
+  padding-bottom: 10px;
 }
 .resume-footer {
   display: flex;
