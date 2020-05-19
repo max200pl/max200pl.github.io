@@ -11,7 +11,7 @@ modalCall.on("click", function (event) {
 
      $(modalId).addClass("show");
      $("body").addClass("no-scroll")
-     $("body").find(".scrollup").css("display", "none");
+     $("body").find(".scrollup").css("display", "none"); //remove button-up
      setTimeout(function () {
           $(modalId)
                .find(".modal__dialog")
