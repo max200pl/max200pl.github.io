@@ -79,7 +79,7 @@ h6 {
 	background-color: #fff;
 }
 
-.intro__suptitle {
+.intro__subtitle {
 	margin-bottom: 20px;
 
 	font-size: 72px;
@@ -153,7 +153,7 @@ h6 {
 }
 
 .nav__link:after {
-	/*добовление псевдо элемента*/
+	/*добавление псевдо элемента*/
 	content: "";
 	display: block;
 	width: 100%;
@@ -382,7 +382,7 @@ h6 {
 	text-align: center;
 }
 
-.section__suptitle {
+.section__subtitle {
 	font-family: 'Kaushan Script', cursive;
 	font-size: 24px;
 	color: #333;
@@ -431,11 +431,11 @@ h6 {
 	position: relative;
 }
 
-.card__inner:hover .card__imegs {
+.card__inner:hover .card__images {
 	transform: translate3d(-10px, -10px, 0);
 }
 
-.card__inner:hover .card__imegs img {
+.card__inner:hover .card__images img {
 	opacity: .1;
 
 }
@@ -444,13 +444,13 @@ h6 {
 	opacity: 1;
 }
 
-.card__imegs {
+.card__images {
 	background: linear-gradient(to bottom, #f38181, #fce38a);
 
 	transition: transform .2s linear;
 }
 
-.card__imegs img {
+.card__images img {
 
 	display: block;
 	max-width: 100%;
@@ -573,22 +573,22 @@ h6 {
 	color: #999;
 }
 
-/* divices */
+/* devices */
 
-.divices {
+.devices {
 	width: 100%;
 	max-width: 600px;
 	margin: 0 auto;
 	position: relative;
 }
 
-.divices__item {
+.devices__item {
 	display: block;
 	max-width: 100%;
 	height: auto;
 }
 
-.divices__item--iphone {
+.devices__item--iphone {
 	position: absolute;
 	right: 0;
 	bottom: -80px;
@@ -597,18 +597,18 @@ h6 {
 
 /*  we do  */
 
-.wedo {
+.we-do {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 -15px;
 }
 
-.wedo__item {
+.we-do__item {
 	width: 50%;
 	padding: 0 15px;
 }
 
-.wedo__img {
+.we-do__img {
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -1329,7 +1329,7 @@ h6 {
 
 	/* .intro */
 
-	.intro__suptitle {
+	.intro__subtitle {
 		font-size: 52px;
 	}
 
@@ -1350,7 +1350,7 @@ h6 {
 
 	/* .intro */
 
-	.intro__suptitle {
+	.intro__subtitle {
 		font-size: 32px;
 	}
 
@@ -1553,13 +1553,13 @@ h6 {
 	}
 
 
-	/*Wedo*/
+	/*we-do*/
 
-	.wedo__img {
+	.we-do__img {
 		display: none;
 	}
 
-	.wedo__item {
+	.we-do__item {
 		width: 100%;
 	}
 
@@ -1626,7 +1626,7 @@ h6 {
 
 	/* .intro */
 
-	.intro__suptitle {
+	.intro__subtitle {
 		font-size: 22px;
 	}
 
@@ -1640,7 +1640,7 @@ h6 {
 		margin-bottom: 50px;
 	}
 
-	.section__suptitle {
+	.section__subtitle {
 		font-size: 20px;
 	}
 
@@ -1668,13 +1668,13 @@ h6 {
 		font-size: 52px;
 	}
 
-	/*divices*/
+	/*devices*/
 
-	.divices {
+	.devices {
 		max-width: 320px;
 	}
 
-	.divices__item--iphone {
+	.devices__item--iphone {
 		width: 180px;
 		right: -90px;
 		bottom: -50px;
