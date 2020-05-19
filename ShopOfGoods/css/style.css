@@ -72,7 +72,7 @@ h6 {
 }
 
 .menu-search__input {
-     background: url("/images/menu/search.svg") 18px center no-repeat;
+     background: url(../images/menu/search.svg) 18px center no-repeat;
 
      min-width: 216px;
 
@@ -87,7 +87,7 @@ h6 {
 }
 
 .menu-basket {
-     background: url("/images/menu/basket.svg") 21.78px 7px no-repeat;
+     background: url(../images/menu/basket.svg) 21.78px 7px no-repeat;
      display: flex;
      position: relative;
 
