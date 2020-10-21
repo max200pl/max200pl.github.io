@@ -15,6 +15,15 @@ body {
      box-sizing: border-box;
 }
 
+button {
+     padding: 0;
+     border: none;
+     font: inherit;
+     color: inherit;
+     background-color: transparent;
+     cursor: pointer;
+   }
+
 h1,
 h2,
 h3,
@@ -300,6 +309,10 @@ h6 {
 
 .trade-tuning__delete {
      cursor: pointer;
+}
+
+.trade-tuning__quantity-sum{
+     vertical-align: middle;
 }
 
 .trade-tuning__quantity-load {

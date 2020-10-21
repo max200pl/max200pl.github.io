@@ -1,30 +1,42 @@
 //=====Hover effect
+//* hide button "Начать оформление" click (data-hide)
 
-const discount = document.getElementById("price__discountСost");
-const buyButtons = document.getElementById("card-footer__buy-btn");
+document.addEventListener('click', function (event) {
+     if (event.target.dataset.hide != undefined) { // .dataset.hide - дата атрибут с именем hide 
+          event.target.style.display = 'none';
+     }
+})
+
+//===== Counter Product
+
+let buttonCountPlus = document.getElementById("trade-tuning__buttonCountPlus")
 
 
-function hello() {
-     console.log('hello');
-}
-
-
-for (var i = 0, length = buyButtons.classList.length; i < length; i++) {
-     let element = buyButtons.classList[i];
-     let count = element+
-     console.log(count);
-}
+buttonCountPlus.addEventListener('click', function (event) {
     
+     
+})
 
-// buyBtn.addEventListener("mouseover", function () {
-//      discount.style.display = "block";
-// }, false);
+// нужно повесить обработчик на id="item"
+//item.addEventListener
+
+// при нажатии на данный блок считать class="price__cost"
+// занести в переменную calculation
+
+//let calculate = document.getElementById()
+//let count = document.getElementById()
+
+//calculation = document.getElementById()
+
+//  document.getElementById("")
 
 
-// buyBtn.addEventListener("mouseout", function () {
-//      discount.style.display = "";
 
-// }, false);
+
+
+
+
+
 
 
 
