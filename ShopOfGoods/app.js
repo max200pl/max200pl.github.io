@@ -1,18 +1,30 @@
 //=====Hover effect
 
 const discount = document.getElementById("price__discountСost");
-const buyBtn = document.getElementById("card-footer__buy-btn");
+const buyButtons = document.getElementById("card-footer__buy-btn");
 
 
-buyBtn.addEventListener("mouseover", function () {
-     discount.style.display = "block";
-}, false);
+function hello() {
+     console.log('hello');
+}
 
 
-buyBtn.addEventListener("mouseout", function () {
-     discount.style.display = "";
+for (var i = 0, length = buyButtons.classList.length; i < length; i++) {
+     let element = buyButtons.classList[i];
+     let count = element+
+     console.log(count);
+}
+    
 
-}, false);
+// buyBtn.addEventListener("mouseover", function () {
+//      discount.style.display = "block";
+// }, false);
+
+
+// buyBtn.addEventListener("mouseout", function () {
+//      discount.style.display = "";
+
+// }, false);
 
 
 
