@@ -1,26 +1,80 @@
 //=====Hover effect
 //* hide button "Начать оформление" click (data-hide)
-
-document.addEventListener('click', function (event) {
+function hideButtonOnClick(event){
      if (event.target.dataset.hide != undefined) { // .dataset.hide - дата атрибут с именем hide 
-          event.target.style.display = 'none';
-          let parent = event.target.parentNode.parentNode // получение родителя 
-          let priceCost = parent.getElementsByClassName("price__cost")[0]
-          let cost = priceCost.innerText
-          console.log(cost);
+     event.target.style.display = 'none';
      }
-})
-//===== Counter Product
+}
 
-let buttonCountPlus = document.getElementById("trade-tuning__buttonCountPlus")
+// document.addEventListener('click', hideButtonOnClick);
+
+//* ===== Counter Product
+
+function getPriceCostItem(event){
+     let parents = event.target.parentNode.parentNode // получение родителя 
+     console.log(parents);
+
+     let priceCost = parents.getElementById("cost") // находим нужный div 
+     // получаем внутренне содержимое <div class = "price__cost"></div>
+     let cost = priceCost.innerText 
+     
+    console.log(cost);
+}
+
+document.addEventListener('click', event => {
+     event.preventDefault()
+     const id = event.target.dataset.id
+     const item = items.find(f => id === id)
+     console.log(item);
+
+     
+     hideButtonOnClick(event)
+     getPriceCostItem(event)
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function getButtonCount(){
+//      let buttonCountPlus = document.getElementById("trade-tuning__buttonCountPlus")
+//      let buttonCountMinus = document.getElementById("trade-tuning__buttonCountMinus")
+//      let count = document.getElementById("trade-tuning__countProductNumber").innerHTML
+//      let countNumber = parseInt(count.replace(/[^\d]/g, ''))
+//      let number = 1
+
+//      buttonCountPlus.onclick = function(){
+//           number++
+//           countNumber.innerHTML = number
+//      }
+// }
+
+
+
+
+
+// let buttonCountPlus = document.getElementById("trade-tuning__buttonCountPlus")
 
 //let attribute  = document.getAttribute('[data-item]')
 
 
-buttonCountPlus.addEventListener('click', function (event) {
+// buttonCountPlus.addEventListener('click', function (event) {
 
 
-})
+// })
 
 // нужно повесить обработчик на 
 //item.addEventListener
