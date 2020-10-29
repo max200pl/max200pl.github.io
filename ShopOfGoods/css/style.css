@@ -9,6 +9,10 @@ body {
      background: #E5E5E5;
 }
 
+:root{
+     --color-unaccented: #464d55;
+}
+
 *,
 *:before,
 *:after {
@@ -242,6 +246,7 @@ h6 {
      font-size: 18px;
      font-weight: 700;
      line-height: 1.4;
+     color: var(--color-unaccented)
 }
 
 /*Card__footer */

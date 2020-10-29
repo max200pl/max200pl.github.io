@@ -26,7 +26,7 @@ class Products{
                               </div>
 
                               <div class="price__cost" id="cost" data-cost="cost">
-                                   ${price}
+                                   ${price.toLocaleString()} USD
                               </div>
                          </div>
                     </div>
