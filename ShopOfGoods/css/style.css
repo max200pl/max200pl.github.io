@@ -225,7 +225,7 @@ h6 {
      height: 30px;
 }
 
-.price__discountСost {
+.price__discountCost {
      display: none;
      font-size: 14px;
      font-weight: 400;
@@ -238,7 +238,7 @@ h6 {
      transition: all 2s linear;
 }
 
-.price__discountСost.show {
+.price__discountCost.show {
      display: block;
 }
 
@@ -290,7 +290,7 @@ h6 {
      background: #1966C1;
 }
 
-.card-footer__buy-btn:hover~.price__discountСost {
+.card-footer__buy-btn:hover~.price__discountCost {
      display: block;
 }
 
@@ -424,6 +424,6 @@ h6 {
 
 }
 
-.slider-dots li.dots-activ {
+.slider-dots li.dots-active {
      background-color: #590BFF;
 }

@@ -6,7 +6,7 @@ $(document).ready(function () {
                // проверка input c name="name"  
                name: {
                     required: true, // обязательное пле ввода 
-                    minlength: 3 // минимальное количество симолов 3
+                    minlength: 3 // минимальное количество символ 3
                },
 
                // проверка input c name="name" 
@@ -17,7 +17,7 @@ $(document).ready(function () {
                }
 
           },
-          // в созданном label показуем название ошибки  
+          // в созданном label выводим название ошибки  
           messages: {
                name: {
                     required: "Please specify your name",

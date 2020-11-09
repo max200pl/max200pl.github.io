@@ -1,14 +1,32 @@
 class Products{
+     constructor(){
+          this.classNameActive = 'hide';
+          this.labelAdd = 'Начать оформление' // добавить в корзину
+          this.labelRemove = 'Начать оформление' // удалить с корзины 
+
+     }
+
      render(){ 
+          const productsStore = localStorageUtil.getProducts()
           let htmlCatalog = '';
+
           CATALOG.forEach(({id, name, price, img})=>{ // переберем все объекты каталога и делаем деструктуризацию
+               let activeClass = '';
+               let activeText = '';
+               if (productsStore.indexOf(id) === -1) { // если id карточки нет в localStorage
+                    activeText = this.labelAdd 
+               }else{ // если есть то скрываем верхний слой классом hide
+                    activeText = this.labelRemove
+                    activeClass = this.classNameHide
+               }
+               
                htmlCatalog += `
                <div id="item" class="item-card">
                     <div class="slider">
                          <div class="slider-main">
                               <img class="slider-main__img" src="${img}" alt="">
                               <ul class="slider-dots slider-dots--mb__none ">
-                                   <li class="dots-activ"></li>
+                                   <li class="dots-active"></li>
                                    <li></li>
                                    <li></li>
                               </ul>
@@ -21,7 +39,7 @@ class Products{
                          </div>
 
                          <div class="price__list">
-                              <div id="price__discountСost" class="price__discountСost">
+                              <div id="price__discountCost" class="price__discountCost">
                                    2150р
                               </div>
 
@@ -32,8 +50,8 @@ class Products{
                     </div>
 
                     <div class="card-footer">
-                         <button class="card-footer__buy-btn" data-hide data-id="1">
-                              Начать оформление
+                         <button class="card-footer__buy-btn${activeClass}">
+                              ${activeText}
                          </button>
 
                          <div class="card-footer__trade">
