@@ -1,25 +1,39 @@
-class Products{
-     constructor(){
+class Products {
+     constructor() {
           this.classNameActive = 'hide';
           this.labelAdd = 'Начать оформление' // добавить в корзину
           this.labelRemove = 'Начать оформление' // удалить с корзины 
 
      }
 
-     render(){ 
+     handleSetLocationStorage(element, id) { // получение карточек html и id 
+          const { pushProducts, products } = localStorageUtil.putProducts(id); // деструктуризация объекта 
+
+          if (pushProducts) {
+               element.classList.add(this.classNameActive);
+               element.innerHTML = this.labelRemove;
+          } else {
+               element.classList.remove(this.classNameActive);
+               element.innerHTML = this.labelAdd;
+          }
+          //* для перезаписи текущего количества товаров корзины 
+          headerPage.render(products.length);
+     }
+
+     render() {
           const productsStore = localStorageUtil.getProducts()
           let htmlCatalog = '';
 
-          CATALOG.forEach(({id, name, price, img})=>{ // переберем все объекты каталога и делаем деструктуризацию
+          CATALOG.forEach(({ id, name, price, img }) => { // переберем все объекты каталога и делаем деструктуризацию
                let activeClass = '';
                let activeText = '';
                if (productsStore.indexOf(id) === -1) { // если id карточки нет в localStorage
-                    activeText = this.labelAdd 
-               }else{ // если есть то скрываем верхний слой классом hide
+                    activeText = this.labelAdd
+               } else { // если есть то скрываем верхний слой классом hide
                     activeText = this.labelRemove
                     activeClass = this.classNameHide
                }
-               
+
                htmlCatalog += `
                <div id="item" class="item-card">
                     <div class="slider">
