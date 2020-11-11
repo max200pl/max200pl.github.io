@@ -37,6 +37,10 @@ h6 {
      margin: 0;
 }
 
+.hide {
+     display: none;
+}
+
 /*Container*/
 
 .container {
@@ -282,9 +286,7 @@ h6 {
      transition: background .5s linear;
 }
 
-.card-footer__buy-btn.hide {
-     display: none;
-}
+
 
 .card-footer__buy-btn:hover {
      background: #1966C1;

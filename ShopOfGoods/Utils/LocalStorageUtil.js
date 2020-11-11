@@ -2,8 +2,7 @@ class LocalStorageUtil {
      constructor() {
           this.keyName = 'products';// создаем ключ по которому будем обращаться 
      }
-     // создаем новые два метода, для получения списка выбранных продуктов и добавления новых 
-
+     //* получение товаров с localStorage
      getProducts() {
           // получаем элемент по ключу, если элемент присутствует получаем строку если нет то null 
           const productsLocalStorage = localStorage.getItem(this.keyName);
@@ -13,9 +12,9 @@ class LocalStorageUtil {
           }
           return [];
      }
-
+     //* добавление новых товаров localStorage
      putProducts(id) { // принимаем id товара с объекта Products
-          let products = this.getProducts();// получаем массив 
+          let products = this.getProducts();// получаем массив localStorage
           let pushProduct = false;// если значение false  то удалили если true то добавили 
           // проверка повторяющихся элементов массива 
           const index = products.indexOf(id);
@@ -29,7 +28,7 @@ class LocalStorageUtil {
 
           localStorage.setItem(this.keyName, JSON.stringify(products)); // преобразуем из массива назад в строку 
 
-          return { pushProduct, products }
+          return { pushProduct, products } // возвращаем новый элемент и новый массив элементов 
      }
 }
 

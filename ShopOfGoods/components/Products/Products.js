@@ -5,16 +5,17 @@ class Products {
           this.labelRemove = 'Начать оформление' // удалить с корзины 
 
      }
-
+     //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
      handleSetLocationStorage(element, id) { // получение карточек html и id 
-          const { pushProducts, products } = localStorageUtil.putProducts(id); // деструктуризация объекта 
+          console.log(element, id);
+          const { pushProducts, products } = localStorageUtil.putProducts(id); // деструктуризация возвращаемого объекта с метода putProducts
 
-          if (pushProducts) {
-               element.classList.add(this.classNameActive);
-               element.innerHTML = this.labelRemove;
+          if (pushProducts) { // если новый элемент то
+               element.classList.add(this.classNameActive); // изменяем его класс 
+               element.innerHTML = this.labelRemove; // изменяем его текст 
           } else {
-               element.classList.remove(this.classNameActive);
-               element.innerHTML = this.labelAdd;
+               element.classList.remove(this.classNameActive); // удаляем его класс 
+               element.innerHTML = this.labelAdd; // изменяем его текст на исходный 
           }
           //* для перезаписи текущего количества товаров корзины 
           headerPage.render(products.length);
@@ -27,11 +28,12 @@ class Products {
           CATALOG.forEach(({ id, name, price, img }) => { // переберем все объекты каталога и делаем деструктуризацию
                let activeClass = '';
                let activeText = '';
+
                if (productsStore.indexOf(id) === -1) { // если id карточки нет в localStorage
-                    activeText = this.labelAdd
+                    activeText = this.labelAdd;
                } else { // если есть то скрываем верхний слой классом hide
-                    activeText = this.labelRemove
-                    activeClass = this.classNameHide
+                    activeClass = ' '+this.classNameActive; // для корректного добавления класса 
+                    activeText = this.labelRemove;
                }
 
                htmlCatalog += `
@@ -64,7 +66,7 @@ class Products {
                     </div>
 
                     <div class="card-footer">
-                         <button class="card-footer__buy-btn${activeClass}">
+                         <button class="card-footer__buy-btn${activeClass}" onClick = "productsPage.handleSetLocationStorage(this, '${id}');">
                               ${activeText}
                          </button>
 
