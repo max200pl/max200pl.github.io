@@ -1,36 +1,36 @@
 //=====Hover effect
 //* hide button "Начать оформление" click (data-hide)
-function hideButtonOnClick(event){
-     if (event.target.dataset.hide != undefined) { // .dataset.hide - дата атрибут с именем hide 
-     event.target.style.display = 'none';
-     }
-}
+// function hideButtonOnClick(event){
+//      if (event.target.dataset.hide != undefined) { // .dataset.hide - дата атрибут с именем hide 
+//      event.target.style.display = 'none';
+//      }
+// }
 
 // document.addEventListener('click', hideButtonOnClick);
 
-//* ===== Counter Product
+// //* ===== Counter Product
 
-function getPriceCostItem(event){
-     let parents = event.target.parentNode.parentNode // получение родителя 
-     console.log(parents);
+// function getPriceCostItem(event){
+//      let parents = event.target.parentNode.parentNode // получение родителя 
+//      console.log(parents);
 
-     let priceCost = parents.getElementById("cost") // находим нужный div 
-     // получаем внутренне содержимое <div class = "price__cost"></div>
-     let cost = priceCost.innerText 
+//      let priceCost = parents.getElementById("cost") // находим нужный div 
+//      // получаем внутренне содержимое <div class = "price__cost"></div>
+//      let cost = priceCost.innerText 
      
-    console.log(cost);
-}
+//     console.log(cost);
+// }
 
-document.addEventListener('click', event => {
-     event.preventDefault()
-     const id = event.target.dataset.id
-     const item = items.find(f => id === id)
-     console.log(item);
+// document.addEventListener('click', event => {
+//      event.preventDefault()
+//      const id = event.target.dataset.id
+//      const item = items.find(f => id === id)
+//      console.log(item);
 
      
-     hideButtonOnClick(event)
-     getPriceCostItem(event)
-});
+//      hideButtonOnClick(event)
+//      getPriceCostItem(event)
+// });
 
 
 

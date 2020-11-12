@@ -1,23 +1,28 @@
 class Products {
      constructor() {
           this.classNameActive = 'hide';
-          this.labelAdd = 'Начать оформление' // добавить в корзину
-          this.labelRemove = 'Начать оформление' // удалить с корзины 
-
+          this.labelRemove = 'Добавлено в корзину' // удалить с корзины 
+          this.labelAdd = 'Оформить' // добавить в корзину
      }
-     //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
-     handleSetLocationStorage(element, id) { // получение карточек html и id 
-          console.log(element, id);
-          const { pushProducts, products } = localStorageUtil.putProducts(id); // деструктуризация возвращаемого объекта с метода putProducts
+     //* функция скрытия кнопки "Начать оформление" по нажатию 
+     hideLayer(element) {
+          element.classList.add(this.classNameActive)
+     }
 
-          if (pushProducts) { // если новый элемент то
-               element.classList.add(this.classNameActive); // изменяем его класс 
-               element.innerHTML = this.labelRemove; // изменяем его текст 
+     //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
+     handleSetLocationStorage(element, id) { // получение карточек html и id
+
+          const { pushProduct, products } = localStorageUtil.putProducts(id); // деструктуризация возвращаемого объекта с метода putProducts
+
+          if (pushProduct) { // логическое значение если элемент добавлен то флаг true 
+              // element.classList.add(this.classNameActive);
+               element.innerHTML = this.labelRemove;
           } else {
-               element.classList.remove(this.classNameActive); // удаляем его класс 
-               element.innerHTML = this.labelAdd; // изменяем его текст на исходный 
-          }
-          //* для перезаписи текущего количества товаров корзины 
+               //element.classList.remove(this.classNameActive); // удаляем его класс 
+               element.innerHTML = this.labelAdd;
+           }
+
+          //* для перезаписи текущего количества товаров корзины [el1....] количество элементов localStorage
           headerPage.render(products.length);
      }
 
@@ -26,16 +31,17 @@ class Products {
           let htmlCatalog = '';
 
           CATALOG.forEach(({ id, name, price, img }) => { // переберем все объекты каталога и делаем деструктуризацию
+          //* первоначальная установка текста кнопки добавления товара в корзину 
                let activeClass = '';
                let activeText = '';
-
+             
                if (productsStore.indexOf(id) === -1) { // если id карточки нет в localStorage
                     activeText = this.labelAdd;
-               } else { // если есть то скрываем верхний слой классом hide
-                    activeClass = ' '+this.classNameActive; // для корректного добавления класса 
+               } else {
                     activeText = this.labelRemove;
+                    // activeClass = ' ' + this.classNameActive; // удаляем верхний слой 
                }
-
+          //*
                htmlCatalog += `
                <div id="item" class="item-card">
                     <div class="slider">
@@ -66,8 +72,8 @@ class Products {
                     </div>
 
                     <div class="card-footer">
-                         <button class="card-footer__buy-btn${activeClass}" onClick = "productsPage.handleSetLocationStorage(this, '${id}');">
-                              ${activeText}
+                         <button class="card-footer__buy-btn" onClick="productsPage.hideLayer(this)">
+                             Начать оформление 
                          </button>
 
                          <div class="card-footer__trade">
@@ -89,8 +95,8 @@ class Products {
                                    </button>
                               </div>
 
-                              <button class="trade-tuning__buy">
-                                   <span>Оформить</span>
+                              <button class="trade-tuning__buy${activeClass}" onclick="productsPage.handleSetLocationStorage(this, '${id}');">
+                                   <span>${activeText}</span>
                               </button>
                          </div>
                     </div>

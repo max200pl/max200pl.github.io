@@ -28,7 +28,7 @@ class LocalStorageUtil {
 
           localStorage.setItem(this.keyName, JSON.stringify(products)); // преобразуем из массива назад в строку 
 
-          return { pushProduct, products } // возвращаем новый элемент и новый массив элементов 
+          return { pushProduct, products } // возвращаем флаг если элемент добавлен localStorage и новый массив элементов 
      }
 }
 

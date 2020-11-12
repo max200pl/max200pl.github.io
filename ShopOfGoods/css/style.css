@@ -37,9 +37,7 @@ h6 {
      margin: 0;
 }
 
-.hide {
-     display: none;
-}
+
 
 /*Container*/
 
@@ -337,7 +335,7 @@ h6 {
 .trade-tuning__buy {
      flex-basis: 50%;
 
-     font-size: 16px;
+     font-size: 13px;
      font-weight: 400;
      text-align: center;
      padding: 10px;
@@ -428,4 +426,8 @@ h6 {
 
 .slider-dots li.dots-active {
      background-color: #590BFF;
+}
+
+.hide {
+     display: none;
 }
