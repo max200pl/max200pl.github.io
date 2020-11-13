@@ -35,4 +35,4 @@ const productsStore = localStorageUtil.getProducts(); // получаем мас
 
 //* productsStore.length // получаем количество элементов массива 
 
-headerPage.render(productsStore.length);
+headerPage.render(productsStore.length); // (count) изменяем содержимое корзины в зависимости от localStorage в статике с перезагрузкой страницы 

@@ -4,9 +4,14 @@ class Products {
           this.labelRemove = 'Добавлено в корзину' // удалить с корзины 
           this.labelAdd = 'Оформить' // добавить в корзину
      }
-     //* функция скрытия кнопки "Начать оформление" по нажатию 
-     hideLayer(element) {
-          element.classList.add(this.classNameActive)
+     //* метод скрытия кнопки "Начать оформление" по нажатию и сохранения состояния в зависимости от localStorage
+     hideLayer(element, id) {
+          const {pushProduct} = localStorageUtil.putProducts(id); 
+          if (pushProduct ) {
+               element.classList.add(this.classNameActive)
+          }else{
+               element.classList.remove(this.classNameActive)
+          }
      }
 
      //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
@@ -36,10 +41,12 @@ class Products {
                let activeText = '';
              
                if (productsStore.indexOf(id) === -1) { // если id карточки нет в localStorage
+                    console.log(productsStore.length);
                     activeText = this.labelAdd;
+                    activeClass = ' ';
                } else {
                     activeText = this.labelRemove;
-                    // activeClass = ' ' + this.classNameActive; // удаляем верхний слой 
+                    activeClass = ' ' + this.classNameActive; // удаляем верхний слой 
                }
           //*
                htmlCatalog += `
@@ -72,7 +79,7 @@ class Products {
                     </div>
 
                     <div class="card-footer">
-                         <button class="card-footer__buy-btn" onClick="productsPage.hideLayer(this)">
+                         <button class="card-footer__buy-btn ${activeClass}" onClick="productsPage.hideLayer(this, '${id}')">
                              Начать оформление 
                          </button>
 
@@ -95,7 +102,7 @@ class Products {
                                    </button>
                               </div>
 
-                              <button class="trade-tuning__buy${activeClass}" onclick="productsPage.handleSetLocationStorage(this, '${id}');">
+                              <button class="trade-tuning__buy" onclick="productsPage.handleSetLocationStorage(this, '${id}');">
                                    <span>${activeText}</span>
                               </button>
                          </div>
