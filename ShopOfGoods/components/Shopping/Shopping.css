@@ -1,0 +1,36 @@
+.shopping-container{
+     width: 97%;
+     height: 97vh;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     margin:  50px auto;
+     padding: 20px;
+     background-color: gray;
+     z-index: 1000;
+}
+
+.shopping-element__name{
+     padding: 15px;
+     font-weight: bold;
+
+}
+
+.shopping-element__price{
+     padding: 15px;
+     color: white;
+}
+
+.shopping__close{
+     position: absolute;
+     width: 35px;
+     height: 35px;
+     top: 20px;
+     right: 20px;
+     background-image: url(./Shopping-img/button_close.svg);
+     background-repeat: no-repeat;
+     background-position: center center;
+     background-size: contain;
+     cursor: pointer;
+}

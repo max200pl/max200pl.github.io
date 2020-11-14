@@ -1,4 +1,10 @@
 class Header {
+     //* метод вызова модального окна Корзины
+     handleOpenShoppingPage(){
+          shoppingPage.render();
+     }
+     //*
+
      render(count) {
           const html = `
                <header class="header">
@@ -13,7 +19,7 @@ class Header {
                                         <input class="menu-search__input" type="search" placeholder="Искать..." autofocus>
                                    </form>
 
-                                   <div class="menu-basket">
+                                   <div class="menu-basket" onClick = "headerPage.handleOpenShoppingPage();">
                                         <span id="total-cart-count" class="menu-basket__badge"> ${count}</span>
                                         <span id="amount" class="menu-basket__amount">4800р</span>
                                    </div>

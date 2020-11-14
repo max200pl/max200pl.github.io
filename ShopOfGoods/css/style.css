@@ -114,6 +114,7 @@ h6 {
      border-radius: 43px;
 
      margin: 0 0 0 23px;
+     cursor: pointer;
 }
 
 .menu-basket__badge {
