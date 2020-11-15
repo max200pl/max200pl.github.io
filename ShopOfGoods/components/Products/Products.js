@@ -123,4 +123,3 @@ class Products {
 }
 // создаем экземпляр класса 
 const productsPage = new Products();
-productsPage.render()
