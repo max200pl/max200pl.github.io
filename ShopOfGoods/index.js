@@ -19,6 +19,7 @@ fetch('server/catalog.json')
             render(); // рисуем полученный результат 
         }, 1000);
     })
-    .catch(error => {
-        console.log(error);
+    .catch(()=> {
+        spinnerPage.handleClear() // удаляем спиннер 
+        errorPage.render();
     })
