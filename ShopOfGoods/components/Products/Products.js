@@ -4,6 +4,7 @@ class Products {
           this.labelRemove = 'Добавлено в корзину' // удалить с корзины 
           this.labelAdd = 'Оформить' // добавить в корзину
      }
+
      //* метод скрытия кнопки "Начать оформление" по нажатию и сохранения состояния в зависимости от localStorage
      hideLayer(element, id) {
           const {pushProduct} = localStorageUtil.putProducts(id); 
@@ -13,6 +14,17 @@ class Products {
                element.classList.remove(this.classNameActive)
           }
      }
+     //* метод добовления товара в корзину 
+
+     handle(element, id) { // получение карточек html и id
+          const { pushProduct, products } = localStorageUtil.putProducts(id); // деструктуризация возвращаемого объекта с метода putProducts
+          if(pushProduct){
+
+          }
+          //* для перезаписи текущего количества товаров корзины [el1....] количество элементов localStorage
+          headerPage.render(products.length);
+     }
+     
 
      //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
      handleSetLocationStorage(element, id) { // получение карточек html и id
@@ -30,7 +42,7 @@ class Products {
           //* для перезаписи текущего количества товаров корзины [el1....] количество элементов localStorage
           headerPage.render(products.length);
      }
-
+     
      render() {
           const productsStore = localStorageUtil.getProducts()
           let htmlCatalog = '';
@@ -96,7 +108,7 @@ class Products {
                                              src="images/item-card/card-footer/spinner.svg" alt="">
                                    </div>
 
-                                   <button id="trade-tuning__buttonCountPlus" value="+">
+                                   <button id="trade-tuning__buttonCountPlus" value="+" onclick="productsPage.handle(this, '${id}');">
                                         <img class="trade-tuning__add"
                                              src="images/item-card/card-footer/add.svg" alt="">
                                    </button>
