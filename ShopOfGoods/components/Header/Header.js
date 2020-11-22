@@ -37,8 +37,6 @@ class Header {
 
 const headerPage = new Header();
 
-const productsStore = localStorageUtil.getProducts(); // получаем массив с элементами(карточками)
-
+const productsStore = localStorageUtil.getCountProducts(); // получаем массив с элементами(карточками)
 //* productsStore.length // получаем количество элементов массива 
-
-headerPage.render(productsStore.length); // (count) изменяем содержимое корзины в зависимости от localStorage в статике с перезагрузкой страницы 
+headerPage.render(productsStore); // (count) изменяем содержимое корзины в зависимости от localStorage в статике с перезагрузкой страницы 

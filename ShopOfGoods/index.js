@@ -1,8 +1,7 @@
 function render(){
-     const productsStore = localStorageUtil.getProducts(); // получаем массив с элементами(карточками)
-     
-     headerPage.render(productsStore.length); // (count) изменяем содержимое корзины в зависимости от localStorage в статике с перезагрузкой страницы 
-     productsPage.render()
+    const productsStore = localStorageUtil.getCountProducts(); // получаем массив с элементами(карточками)
+    headerPage.render(productsStore); // (count) изменяем содержимое корзины в зависимости от localStorage в статике с перезагрузкой страницы 
+    productsPage.render()
 }
 
 spinnerPage.render()

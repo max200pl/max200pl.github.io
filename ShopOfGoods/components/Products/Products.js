@@ -9,26 +9,27 @@ class Products {
      hideLayer(element) {
           element.classList.add(this.classNameActive);
      }
-     
+
      //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
      handleSetLocationStorage(element, id, name, price) { // получение карточек html и id
-
+          let countProductsStore = localStorageUtil.getCountProducts()
           const { pushProduct, products } = localStorageUtil.putProducts(id, name, price); // деструктуризация возвращаемого объекта с метода putProducts
 
           if (pushProduct) { // логическое значение если элемент добавлен то флаг true 
               // element.classList.add(this.classNameActive);
-               element.innerHTML = this.labelRemove;
+              element.innerHTML = this.labelAdd;
           } else {
+               element.innerHTML = this.labelRemove;
                //element.classList.remove(this.classNameActive); // удаляем его класс 
-               element.innerHTML = this.labelAdd;
            }
 
           //* для перезаписи текущего количества товаров корзины [el1....] количество элементов localStorage
-          headerPage.render(products.length);
+          headerPage.render(countProductsStore);
      }
      
      render() {
           const productsStore = localStorageUtil.getProducts()
+          console.log(productsStore);
           let htmlCatalog = '';
 
           CATALOG.forEach(({ id, name, img, price}) => { // переберем все объекты каталога и делаем деструктуризацию
@@ -36,8 +37,7 @@ class Products {
                let activeClass = '';
                let activeText = '';
              
-               if (productsStore.indexOf(id) === -1) { // если id карточки нет в localStorage
-                    console.log(productsStore.length);
+               if (productsStore !== null) { // если id карточки нет в localStorage
                     activeText = this.labelAdd;
                     activeClass = ' ';
                } else {
@@ -119,3 +119,4 @@ class Products {
 }
 // создаем экземпляр класса 
 const productsPage = new Products();
+

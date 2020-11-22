@@ -4,33 +4,39 @@ class LocalStorageUtil {
      }
      //* получение товаров с localStorage
      getProducts() {
-          // получаем элемент по ключу, если элемент присутствует получаем строку если нет то null 
-          const productsLocalStorage = localStorage.getItem(this.keyName);
-          if (productsLocalStorage !== null) {
-               //если не null то распарим строку и переведем ее в массив 
-               return JSON.parse(productsLocalStorage);
-          }
-          return [];
+          return JSON.parse(localStorage.getItem(this.keyName))
      }
+
+     //* Получение количества выбранных товаров 
+     getCountProducts(){
+          const productsLocalStorage = this.getProducts()
+          let getCountProducts = 0
+          for (const id in productsLocalStorage) {
+               if (productsLocalStorage.hasOwnProperty(id)) {
+                    const idStorage = productsLocalStorage[id]; // массивы выбранных товаров 
+                    getCountProducts += idStorage[2]
+               }
+          }
+          return getCountProducts // количество подсчитанных товаров 
+     }
+     //*
+
+     
      //* добавление новых товаров localStorage
      putProducts(id, name, price) { // принимаем id товара с объекта Products
-          let products = this.getProducts();// получаем массив localStorage
+          let products = this.getProducts()||{};//  массив localStorage
           let pushProduct = false;// если значение false  то удалили если true то добавили 
-          // проверка повторяющихся элементов массива 
-          const index = products.indexOf(id);
-
-          if (index === -1) {
-               
-               products.push(id, name, price);
+          
+          if (products.hasOwnProperty(id)) {
+               products[id][2] += 1;
+          } else {
+               products[id] = [name, price, 0]
                pushProduct = true;// если новый элемент возводим флаг в true 
                console.log(products);
-          } else {
-               products.splice(index, 1) // удаляем повторяющийся элемент 
           }
+          localStorage.setItem(this.keyName, JSON.stringify(products)); // преобразуем из объекта назад в строку 
 
-          localStorage.setItem(this.keyName, JSON.stringify(products)); // преобразуем из массива назад в строку 
-
-          return { pushProduct, products } // возвращаем флаг если элемент добавлен localStorage и новый массив элементов 
+          return { pushProduct, products } // возвращаем флаг если элемент добавлен localStorage и новый объект элементов
      }
 }
 
