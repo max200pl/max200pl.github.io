@@ -6,30 +6,14 @@ class Products {
      }
 
      //* метод скрытия кнопки "Начать оформление" по нажатию и сохранения состояния в зависимости от localStorage
-     hideLayer(element, id) {
-          const {pushProduct} = localStorageUtil.putProducts(id); 
-          if (pushProduct ) {
-               element.classList.add(this.classNameActive)
-          }else{
-               element.classList.remove(this.classNameActive)
-          }
-     }
-     //* метод добовления товара в корзину 
-
-     handle(element, id) { // получение карточек html и id
-          const { pushProduct, products } = localStorageUtil.putProducts(id); // деструктуризация возвращаемого объекта с метода putProducts
-          if(pushProduct){
-
-          }
-          //* для перезаписи текущего количества товаров корзины [el1....] количество элементов localStorage
-          headerPage.render(products.length);
+     hideLayer(element) {
+          element.classList.add(this.classNameActive);
      }
      
-
      //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
-     handleSetLocationStorage(element, id) { // получение карточек html и id
+     handleSetLocationStorage(element, id, name, price) { // получение карточек html и id
 
-          const { pushProduct, products } = localStorageUtil.putProducts(id); // деструктуризация возвращаемого объекта с метода putProducts
+          const { pushProduct, products } = localStorageUtil.putProducts(id, name, price); // деструктуризация возвращаемого объекта с метода putProducts
 
           if (pushProduct) { // логическое значение если элемент добавлен то флаг true 
               // element.classList.add(this.classNameActive);
@@ -47,7 +31,7 @@ class Products {
           const productsStore = localStorageUtil.getProducts()
           let htmlCatalog = '';
 
-          CATALOG.forEach(({ id, name, price, img }) => { // переберем все объекты каталога и делаем деструктуризацию
+          CATALOG.forEach(({ id, name, img, price}) => { // переберем все объекты каталога и делаем деструктуризацию
           //* первоначальная установка текста кнопки добавления товара в корзину 
                let activeClass = '';
                let activeText = '';
@@ -91,7 +75,7 @@ class Products {
                     </div>
 
                     <div class="card-footer">
-                         <button class="card-footer__buy-btn ${activeClass}" onClick="productsPage.hideLayer(this, '${id}')">
+                         <button class="card-footer__buy-btn ${activeClass}" onClick="productsPage.hideLayer(this)">
                              Начать оформление 
                          </button>
 
@@ -108,13 +92,13 @@ class Products {
                                              src="images/item-card/card-footer/spinner.svg" alt="">
                                    </div>
 
-                                   <button id="trade-tuning__buttonCountPlus" value="+" onclick="productsPage.handle(this, '${id}');">
+                                   <button id="trade-tuning__buttonCountPlus" value="+">
                                         <img class="trade-tuning__add"
                                              src="images/item-card/card-footer/add.svg" alt="">
                                    </button>
                               </div>
 
-                              <button class="trade-tuning__buy" onclick="productsPage.handleSetLocationStorage(this, '${id}');">
+                              <button class="trade-tuning__buy" onclick="productsPage.handleSetLocationStorage(this, '${id}', '${name}', '${price}');">
                                    <span>${activeText}</span>
                               </button>
                          </div>

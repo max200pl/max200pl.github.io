@@ -13,15 +13,17 @@ class LocalStorageUtil {
           return [];
      }
      //* добавление новых товаров localStorage
-     putProducts(id) { // принимаем id товара с объекта Products
+     putProducts(id, name, price) { // принимаем id товара с объекта Products
           let products = this.getProducts();// получаем массив localStorage
           let pushProduct = false;// если значение false  то удалили если true то добавили 
           // проверка повторяющихся элементов массива 
           const index = products.indexOf(id);
 
           if (index === -1) {
-               products.push(id);
+               
+               products.push(id, name, price);
                pushProduct = true;// если новый элемент возводим флаг в true 
+               console.log(products);
           } else {
                products.splice(index, 1) // удаляем повторяющийся элемент 
           }
