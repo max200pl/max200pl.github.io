@@ -1,12 +1,27 @@
 class LocalStorageUtil {
      constructor() {
           this.keyName = 'products';// создаем ключ по которому будем обращаться 
+          
      }
      //* получение товаров с localStorage
      getProducts() {
           return JSON.parse(localStorage.getItem(this.keyName))
      }
 
+     removeProducts(id){
+          // const idItem = id
+          const products = this.getProducts()
+          let removeProducts = false
+          if (products.hasOwnProperty(id)) {
+               if(products[id][2]>=1){
+                  products[id][2] -= 1;
+                  console.log(products[id][2]);
+               }
+          } 
+          localStorage.setItem(this.keyName, JSON.stringify(products)); // преобразуем из объекта назад в строку
+
+
+     }
      //* Получение количества выбранных товаров 
      getCountProducts(){
           const productsLocalStorage = this.getProducts()
@@ -21,10 +36,12 @@ class LocalStorageUtil {
      }
      //*
 
+
+
      
      //* добавление новых товаров localStorage
      putProducts(id, name, price) { // принимаем id товара с объекта Products
-          let products = this.getProducts()||{};//  массив localStorage
+          let products = this.getProducts()||{};//  объект localStorage
           let pushProduct = false;// если значение false  то удалили если true то добавили 
           
           if (products.hasOwnProperty(id)) {
@@ -38,6 +55,8 @@ class LocalStorageUtil {
 
           return { pushProduct, products } // возвращаем флаг если элемент добавлен localStorage и новый объект элементов
      }
+
+    
 }
 
 const localStorageUtil = new LocalStorageUtil();

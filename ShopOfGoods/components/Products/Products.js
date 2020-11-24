@@ -10,10 +10,11 @@ class Products {
           element.classList.add(this.classNameActive);
      }
 
+
      //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
      handleSetLocationStorage(element, id, name, price) { // получение карточек html и id
+          const pushProduct = localStorageUtil.putProducts(id, name, price); // деструктуризация возвращаемого объекта с метода putProducts
           let countProductsStore = localStorageUtil.getCountProducts()
-          const { pushProduct, products } = localStorageUtil.putProducts(id, name, price); // деструктуризация возвращаемого объекта с метода putProducts
 
           if (pushProduct) { // логическое значение если элемент добавлен то флаг true 
               // element.classList.add(this.classNameActive);
@@ -81,7 +82,7 @@ class Products {
 
                          <div class="card-footer__trade">
                               <div class="trade-tuning">
-                                   <button id="trade-tuning__buttonCountMinus" value="-">
+                                   <button id="trade-tuning__buttonCountMinus" value="-" onclick="localStorageUtil.removeProducts('${id}');">
                                         <img class="trade-tuning__delete"
                                              src="images/item-card/card-footer/remove.svg" alt="delete">
                                    </button>
