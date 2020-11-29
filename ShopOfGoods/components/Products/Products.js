@@ -11,21 +11,28 @@ class Products {
      }
 
 
-     //* метод для изменения контента карточки если нажата кнопка "Начать оформление"
-     handleSetLocationStorage(element, id, name, price) { // получение карточек html и id
-          const pushProduct = localStorageUtil.putProducts(id, name, price); // деструктуризация возвращаемого объекта с метода putProducts
-          let countProductsStore = localStorageUtil.getCountProducts()
-
-          if (pushProduct) { // логическое значение если элемент добавлен то флаг true 
-              // element.classList.add(this.classNameActive);
-              element.innerHTML = this.labelAdd;
-          } else {
-               element.innerHTML = this.labelRemove;
-               //element.classList.remove(this.classNameActive); // удаляем его класс 
-           }
-
+     reRenderHeaderCounter() { 
           //* для перезаписи текущего количества товаров корзины [el1....] количество элементов localStorage
+          let countProductsStore = localStorageUtil.getCountProducts()
           headerPage.render(countProductsStore);
+     }
+
+
+     /**
+      * метод для изменения контента карточки если нажата кнопка "Начать оформление"
+      * @param {*} element 
+      * @param {*} id 
+      * @param {*} name 
+      * @param {*} price 
+      * @param {*} action 
+      */
+     handleSetLocationStorage(element, id, name, price, isAdd) { // получение карточек html и id
+          const pushProduct = isAdd ? localStorageUtil.guessModifyProduct(id, name, price, true) : localStorageUtil.guessModifyProduct(id, name, price, false); // деструктуризация возвращаемого объекта с метода putProducts
+          // const pushProduct = localStorageUtil.putProducts(id, name, price); // деструктуризация возвращаемого объекта с метода putProducts
+          element.innerHTML = pushProduct ? this.labelAdd : this.labelRemove;
+          this.reRenderHeaderCounter()
+
+          console.log("pushProduct", pushProduct)
      }
      
      render() {
@@ -82,7 +89,7 @@ class Products {
 
                          <div class="card-footer__trade">
                               <div class="trade-tuning">
-                                   <button id="trade-tuning__buttonCountMinus" value="-" onclick="localStorageUtil.removeProducts('${id}');">
+                                   <button id="trade-tuning__buttonCountMinus" value="-" onclick="productsPage.handleSetLocationStorage(this, '${id}', '${name}', '${price}');">
                                         <img class="trade-tuning__delete"
                                              src="images/item-card/card-footer/remove.svg" alt="delete">
                                    </button>
@@ -99,7 +106,7 @@ class Products {
                                    </button>
                               </div>
 
-                              <button class="trade-tuning__buy" onclick="productsPage.handleSetLocationStorage(this, '${id}', '${name}', '${price}');">
+                              <button class="trade-tuning__buy" onclick="productsPage.handleSetLocationStorage(this, '${id}', '${name}', '${price}', true);">
                                    <span>${activeText}</span>
                               </button>
                          </div>

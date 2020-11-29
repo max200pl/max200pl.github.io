@@ -8,24 +8,13 @@ class LocalStorageUtil {
           return JSON.parse(localStorage.getItem(this.keyName))
      }
 
-     removeProducts(id){
-          // const idItem = id
-          const products = this.getProducts()
-          let removeProducts = false
-          if (products.hasOwnProperty(id)) {
-               if(products[id][2]>=1){
-                  products[id][2] -= 1;
-                  console.log(products[id][2]);
-               }
-          } 
-          localStorage.setItem(this.keyName, JSON.stringify(products)); // преобразуем из объекта назад в строку
-
-
-     }
      //* Получение количества выбранных товаров 
      getCountProducts(){
           const productsLocalStorage = this.getProducts()
+
+          // устанавливать счётчик товаров в корзине по умолчанию в ноль
           let getCountProducts = 0
+
           for (const id in productsLocalStorage) {
                if (productsLocalStorage.hasOwnProperty(id)) {
                     const idStorage = productsLocalStorage[id]; // массивы выбранных товаров 
@@ -34,29 +23,37 @@ class LocalStorageUtil {
           }
           return getCountProducts // количество подсчитанных товаров 
      }
-     //*
 
+     /**
+      * 
+      * @param {Number} id 
+      * @param {String} name 
+      * @param {Number} price 
+      * @param {boolean} action - инкремент или декремент счётчика корзины
+      */
+     guessModifyProduct(id, name, price, action) {
+          let products = this.getProducts() || {}; // объект localStorage
+          let pushProductFlag = false;
 
-
-     
-     //* добавление новых товаров localStorage
-     putProducts(id, name, price) { // принимаем id товара с объекта Products
-          let products = this.getProducts()||{};//  объект localStorage
-          let pushProduct = false;// если значение false  то удалили если true то добавили 
-          
+          // this code is shit
           if (products.hasOwnProperty(id)) {
-               products[id][2] += 1;
+               if (action)
+                    products[id][2] += 1;
+               else 
+                    if (products[id][2] > 0)
+                         products[id][2] -= 1;
+                    else
+                         return;
+               
           } else {
-               products[id] = [name, price, 0]
-               pushProduct = true;// если новый элемент возводим флаг в true 
-               console.log(products);
+               products[id] = [name, price, 1]
+               pushProductFlag = true; // если новый элемент возводим флаг в true 
           }
-          localStorage.setItem(this.keyName, JSON.stringify(products)); // преобразуем из объекта назад в строку 
 
-          return { pushProduct, products } // возвращаем флаг если элемент добавлен localStorage и новый объект элементов
-     }
+          localStorage.setItem(this.keyName, JSON.stringify(products)); // преобразуем из объекта назад в строку
+          return { pushProductFlag, products } // возвращаем флаг если элемент добавлен localStorage и новый объект элементов
 
-    
+     }   
 }
 
 const localStorageUtil = new LocalStorageUtil();
