@@ -17,27 +17,30 @@ class Products {
           headerPage.render(countProductsStore);
      }
 
+     // * метод для изменения контента карточки если нажата кнопка "Начать оформление"
+     changeContentButton(){
+          let productsFlagLS = localStorageUtil.getProductsFlag()
 
+       //  console.log(productsFlagLS);
+          // element.innerHTML = pushProduct ? this.labelAdd : this.labelRemove;
+     }
+
+     //* метод добавления и удаления товаров 
      /**
-      * метод для изменения контента карточки если нажата кнопка "Начать оформление"
-      * @param {*} element 
       * @param {*} id 
       * @param {*} name 
       * @param {*} price 
-      * @param {*} action 
+      * @param {*} action  
       */
-     handleSetLocationStorage(element, id, name, price, isAdd) { // получение карточек html и id
-          const pushProduct = isAdd ? localStorageUtil.guessModifyProduct(id, name, price, true) : localStorageUtil.guessModifyProduct(id, name, price, false); // деструктуризация возвращаемого объекта с метода putProducts
-          // const pushProduct = localStorageUtil.putProducts(id, name, price); // деструктуризация возвращаемого объекта с метода putProducts
-          element.innerHTML = pushProduct ? this.labelAdd : this.labelRemove;
+     handleSetLocationStorage(id, name, price, isAdd) { 
+          isAdd ? localStorageUtil.guessModifyProduct(id, name, price, true) : localStorageUtil.guessModifyProduct(id, name, price, false);
           this.reRenderHeaderCounter()
-
-          console.log("pushProduct", pushProduct)
+          this.changeContentButton()
      }
      
      render() {
           const productsStore = localStorageUtil.getProducts()
-          console.log(productsStore);
+          // console.log(productsStore);
           let htmlCatalog = '';
 
           CATALOG.forEach(({ id, name, img, price}) => { // переберем все объекты каталога и делаем деструктуризацию
@@ -89,7 +92,7 @@ class Products {
 
                          <div class="card-footer__trade">
                               <div class="trade-tuning">
-                                   <button id="trade-tuning__buttonCountMinus" value="-" onclick="productsPage.handleSetLocationStorage(this, '${id}', '${name}', '${price}');">
+                                   <button id="trade-tuning__buttonCountMinus" value="-" onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', false);">
                                         <img class="trade-tuning__delete"
                                              src="images/item-card/card-footer/remove.svg" alt="delete">
                                    </button>
@@ -100,13 +103,13 @@ class Products {
                                              src="images/item-card/card-footer/spinner.svg" alt="">
                                    </div>
 
-                                   <button id="trade-tuning__buttonCountPlus" value="+">
+                                   <button id="trade-tuning__buttonCountPlus" value="+" onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', true);">
                                         <img class="trade-tuning__add"
                                              src="images/item-card/card-footer/add.svg" alt="">
                                    </button>
                               </div>
 
-                              <button class="trade-tuning__buy" onclick="productsPage.handleSetLocationStorage(this, '${id}', '${name}', '${price}', true);">
+                              <button class="trade-tuning__buy">
                                    <span>${activeText}</span>
                               </button>
                          </div>
