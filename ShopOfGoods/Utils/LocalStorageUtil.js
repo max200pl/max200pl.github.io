@@ -26,11 +26,11 @@ class LocalStorageUtil {
                for (const member in productsLocalStorage) delete productsLocalStorage[member];
                flagContainStore = false
           }else{
-               flagContainStore = true // корзина содержит элементы 
-               return countProductsStore
+               return flagContainStore = true // корзина содержит элементы 
+               //return countProductsStore
           }
           localStorage.setItem(this.keyName, JSON.stringify(productsLocalStorage)); 
-          console.log(flagContainStore);
+          //console.log(flagContainStore);
           return flagContainStore
 
      }
@@ -59,6 +59,7 @@ class LocalStorageUtil {
      //* Если товара в localStorage есть 
      //* Тогда меняем скрываем верхний слой кнопки "Начать оформление"
      //* Меняем на кнопе надпись Оформить => в корзине 
+
 
      /**
       * @param {Number} id 

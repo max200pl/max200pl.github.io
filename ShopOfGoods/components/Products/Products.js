@@ -17,11 +17,21 @@ class Products {
           headerPage.render(countProductsStore);
      }
 
-     // * метод для изменения контента карточки если нажата кнопка "Начать оформление"
-     changeContentButton(){
+     reRenderProduct(){
           let productsFlagLS = localStorageUtil.getProductsFlag()
+     }
 
-       //  console.log(productsFlagLS);
+     // * метод для изменения контента карточки если нажата кнопка "Начать оформление"
+     changeContentButton(id){
+
+          //* при нажатии на оформить добавляем новый элемент в localStorage и больше не добавляем 
+          //* и вызываем функцию рендеринга всех товаров 
+          let productsFlagLS = localStorageUtil.getProductsFlag()
+          if (productsFlagLS) {
+               
+          }
+        console.log(productsFlagLS);
+        console.log(id);
           // element.innerHTML = pushProduct ? this.labelAdd : this.labelRemove;
      }
 
@@ -35,7 +45,8 @@ class Products {
      handleSetLocationStorage(id, name, price, isAdd) { 
           isAdd ? localStorageUtil.guessModifyProduct(id, name, price, true) : localStorageUtil.guessModifyProduct(id, name, price, false);
           this.reRenderHeaderCounter()
-          this.changeContentButton()
+          this.changeContentButton(id)
+          productsPage.render()
      }
      
      render() {
@@ -48,12 +59,13 @@ class Products {
                let activeClass = '';
                let activeText = '';
              
-               if (productsStore !== null) { // если id карточки нет в localStorage
-                    activeText = this.labelAdd;
-                    activeClass = ' ';
-               } else {
+               if (productsStore.hasOwnProperty(id)) { // если  не пустой объект тогда 
                     activeText = this.labelRemove;
                     activeClass = ' ' + this.classNameActive; // удаляем верхний слой 
+
+               } else {
+                    activeText = this.labelAdd;
+                    activeClass = ' ';
                }
           //*
                htmlCatalog += `
@@ -109,7 +121,7 @@ class Products {
                                    </button>
                               </div>
 
-                              <button class="trade-tuning__buy">
+                              <button class="trade-tuning__buy" onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', true);">
                                    <span>${activeText}</span>
                               </button>
                          </div>
