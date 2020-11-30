@@ -59,7 +59,7 @@ class Products {
                let activeClass = '';
                let activeText = '';
              
-               if (productsStore.hasOwnProperty(id)) { // если  не пустой объект тогда 
+               if (productsStore === null) { // если  не пустой объект тогда 
                     activeText = this.labelRemove;
                     activeClass = ' ' + this.classNameActive; // удаляем верхний слой 
 
