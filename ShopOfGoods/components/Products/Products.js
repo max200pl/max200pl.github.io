@@ -45,8 +45,8 @@ class Products {
      handleSetLocationStorage(id, name, price, isAdd) { 
           isAdd ? localStorageUtil.guessModifyProduct(id, name, price, true) : localStorageUtil.guessModifyProduct(id, name, price, false);
           this.reRenderHeaderCounter()
-          this.changeContentButton(id)
-          productsPage.render()
+          //this.changeContentButton(id)
+          //! productsPage.render() нельзя вызывать перезапись всего блока при клике при вызове метода добавления товаров в корзину
      }
      
      render() {

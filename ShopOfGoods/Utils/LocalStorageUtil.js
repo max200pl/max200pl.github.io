@@ -7,14 +7,7 @@ class LocalStorageUtil {
           return JSON.parse(localStorage.getItem(this.keyName))
      }
      //* 
-     // function funonload() {
-     //      $("#block").css("background-color", "yellow");
-     //  } 
-     //  window.onload = funonload;
-
-     /** получать localStorage при загрузке страницы 
-      *  если количество элементов корзины 0 тогда меняем контент блоков на начальный 
-      */
+ 
      //* Проверка localStorage на наличие элементов 
      getProductsFlag() {
           //* Возводим Флаг в true что в local Storage есть хотя бы один элемент 
