@@ -15,7 +15,9 @@ class LocalStorageUtil {
           const productsLocalStorage = this.getProducts()
           let countProductsStore = this.getCountProducts()
           let flagContainStore = false // корзина пуста
-          if(countProductsStore === 0){
+
+          if(countProductsStore === 0){ // если корзина содержит 0 элементов 
+               // перебираем весь объект и удаляем все элементы объекта
                for (const member in productsLocalStorage) delete productsLocalStorage[member];
                flagContainStore = false
           }else{
@@ -25,7 +27,6 @@ class LocalStorageUtil {
           localStorage.setItem(this.keyName, JSON.stringify(productsLocalStorage)); 
           //console.log(flagContainStore);
           return flagContainStore
-
      }
 
 

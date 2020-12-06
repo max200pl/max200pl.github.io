@@ -8,6 +8,7 @@ class Products {
      //* метод скрытия кнопки "Начать оформление" по нажатию и сохранения состояния в зависимости от localStorage
      hideLayer(element) {
           element.classList.add(this.classNameActive);
+          //element.classList.remove(this.classNameActive);
      }
 
 
@@ -17,48 +18,44 @@ class Products {
           headerPage.render(countProductsStore);
      }
 
-     reRenderProduct(){
-          let productsFlagLS = localStorageUtil.getProductsFlag()
-     }
-
      // * метод для изменения контента карточки если нажата кнопка "Начать оформление"
-     changeContentButton(id){
-
-          //* при нажатии на оформить добавляем новый элемент в localStorage и больше не добавляем 
-          //* и вызываем функцию рендеринга всех товаров 
-          let productsFlagLS = localStorageUtil.getProductsFlag()
-          if (productsFlagLS) {
-               
+     changeContentButton(element, id) {
+          let products = localStorageUtil.getProducts() // получаем объект в localStorage
+          let countPickProduct = 0;
+          for (const idEl in products) { // получем ключи объекта id
+               if (id === idEl) // получаем ключ выбранного элемента 
+               {
+                    countPickProduct = products[idEl][2] // получаем количество выбранных товаров 
+                    console.log(countPickProduct);
+               }
+               //* меняем контент кнопки "Оформить" => "Добавлено в корзину"
+               if (countPickProduct >= 1) {
+                    element.innerHTML = this.labelRemove; //"Добавлено в корзину"
+               } if (countPickProduct <= 0) {
+                    element.innerHTML = this.labelAdd; //"Оформить"
+               }
           }
-        console.log(productsFlagLS);
-        console.log(id);
+          //* при нажатии на оформить добавляем новый элемент в localStorage и больше не добавляем 
           // element.innerHTML = pushProduct ? this.labelAdd : this.labelRemove;
      }
 
      //* метод добавления и удаления товаров 
-     /**
-      * @param {*} id 
-      * @param {*} name 
-      * @param {*} price 
-      * @param {*} action  
-      */
-     handleSetLocationStorage(id, name, price, isAdd) { 
+     handleSetLocationStorage(id, name, price, isAdd) {
           isAdd ? localStorageUtil.guessModifyProduct(id, name, price, true) : localStorageUtil.guessModifyProduct(id, name, price, false);
           this.reRenderHeaderCounter()
-          //this.changeContentButton(id)
+          localStorageUtil.getProductsFlag()
           //! productsPage.render() нельзя вызывать перезапись всего блока при клике при вызове метода добавления товаров в корзину
      }
-     
+
      render() {
           const productsStore = localStorageUtil.getProducts()
-          // console.log(productsStore);
           let htmlCatalog = '';
 
-          CATALOG.forEach(({ id, name, img, price}) => { // переберем все объекты каталога и делаем деструктуризацию
-          //* первоначальная установка текста кнопки добавления товара в корзину 
+          CATALOG.forEach(({ id, name, img, price }) => { // переберем все объекты каталога и делаем деструктуризацию
+               //* первоначальная установка текста кнопки добавления товара в корзину 
                let activeClass = '';
                let activeText = '';
-             
+
                if (productsStore === null) { // если  не пустой объект тогда 
                     activeText = this.labelRemove;
                     activeClass = ' ' + this.classNameActive; // удаляем верхний слой 
@@ -67,7 +64,7 @@ class Products {
                     activeText = this.labelAdd;
                     activeClass = ' ';
                }
-          //*
+               //*
                htmlCatalog += `
                <div id="item" class="item-card">
                     <div class="slider">
@@ -98,7 +95,7 @@ class Products {
                     </div>
 
                     <div class="card-footer">
-                         <button class="card-footer__buy-btn ${activeClass}" onClick="productsPage.hideLayer(this)">
+                         <button class="card-footer__buy-btn ${activeClass}" data-hide onClick="productsPage.hideLayer(this)">
                              Начать оформление 
                          </button>
 
@@ -121,7 +118,7 @@ class Products {
                                    </button>
                               </div>
 
-                              <button class="trade-tuning__buy" onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', true);">
+                              <button class="trade-tuning__buy" onclick="productsPage.changeContentButton(this, '${id}');">
                                    <span>${activeText}</span>
                               </button>
                          </div>
