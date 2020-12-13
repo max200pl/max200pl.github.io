@@ -8,6 +8,15 @@ class LocalStorageUtil {
      }
      //* 
 
+     setProductsInCatalog(){
+          const products = this.getProducts()
+          CATALOG.forEach(({ id, name, price }) => { // переберем все объекты каталога и делаем деструктуризацию
+               //* запись в ls всех товаров каталога 
+               products[id] = [name, price, 0]
+          })
+          localStorage.setItem(this.keyName, JSON.stringify(products)); 
+     }
+
      /*      //* Проверка localStorage на наличие элементов 
           getProductsFlag() {
                //* Возводим Флаг в true что в local Storage есть хотя бы один элемент 
@@ -55,9 +64,9 @@ class LocalStorageUtil {
                //* получить именно то id по которому нажали 
                if (idItems === id) {
                     //* получить количество выбранного товара 
-                    let countOneProduct = productsLocalStorage[id][2]
-                   // console.log(countOneProduct, id);
-                    return countOneProduct, id
+                    const countOneProduct = productsLocalStorage[id][2]
+                    console.log(countOneProduct, id);
+                    return countOneProduct
 
                }
 

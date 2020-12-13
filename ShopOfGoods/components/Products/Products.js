@@ -53,6 +53,8 @@ class Products {
      render() {
           const productsStore = localStorageUtil.getProducts()
           let htmlCatalog = '';
+          //* запись всех товаров в LS при первом запуске 
+          localStorageUtil.setProductsInCatalog()
 
           CATALOG.forEach(({ id, name, img, price }) => { // переберем все объекты каталога и делаем деструктуризацию
                //* первоначальная установка текста кнопки добавления товара в корзину 
