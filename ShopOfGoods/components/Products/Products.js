@@ -61,15 +61,10 @@ class Products {
                let activeClass = '';
                let activeText = '';
 
+               //* получение количества выбранного товара 
+               let countOneProduct = productsStore[id][2]
+
                //* получить id конкретного товара в localStorage 
-               for (const idItems in productsStore) {
-                    //* получить именно то id по которому нажали 
-                    if (idItems === id) {
-                         //* получить количество выбранного товара 
-                         let countOneProduct = productsStore[id][2]
-                         console.log(countOneProduct, id);
-                    }
-               }
                
                if (productsStore === null) { // если  не пустой объект тогда 
                     activeText = this.labelRemove;
@@ -122,7 +117,7 @@ class Products {
                                    </button>
                                    <div>
                                         <span id="trade-tuning__countProductNumber"
-                                             class="trade-tuning__quantity-sum">1шт.</span>
+                                             class="trade-tuning__quantity-sum">${countOneProduct} шт.</span>
                                         <img class="trade-tuning__quantity-load"
                                              src="images/item-card/card-footer/spinner.svg" alt="">
                                    </div>
