@@ -42,8 +42,9 @@ class Products {
      //* метод добавления и удаления товаров 
      handleSetLocationStorage(id, name, price, isAdd) {
           isAdd ? localStorageUtil.guessModifyProduct(id, name, price, true) : localStorageUtil.guessModifyProduct(id, name, price, false);
+          //* ре рендеринг корзины товаров 
           this.reRenderHeaderCounter()
-          localStorageUtil.getProductsFlag()
+         // localStorageUtil.getProductsFlag()
           //! productsPage.render() нельзя вызывать перезапись всего блока при клике при вызове метода добавления товаров в корзину
      }
 
