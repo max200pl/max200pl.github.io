@@ -47,6 +47,23 @@ class LocalStorageUtil {
           return getCountProducts // количество подсчитанных товаров 
      }
 
+     //* Получение количества вобранного товара 
+     getCountOneProduct(id) {
+          const productsLocalStorage = this.getProducts()
+          //* найти выбранный элемент в объекте 
+          for (const idItems in productsLocalStorage) {
+               //* получить именно то id по которому нажали 
+               if (idItems === id) {
+                    //* получить количество выбранного товара 
+                    let countOneProduct = productsLocalStorage[id][2]
+                   // console.log(countOneProduct, id);
+                    return countOneProduct, id
+
+               }
+
+          }
+
+     }
 
      //* Если нажали на кнопку Оформить добавляем пустой элемент в localStorage 
 

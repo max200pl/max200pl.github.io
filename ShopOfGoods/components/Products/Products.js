@@ -44,7 +44,9 @@ class Products {
           isAdd ? localStorageUtil.guessModifyProduct(id, name, price, true) : localStorageUtil.guessModifyProduct(id, name, price, false);
           //* ре рендеринг корзины товаров 
           this.reRenderHeaderCounter()
-         // localStorageUtil.getProductsFlag()
+          //* ре рендеринг количества выбранного товара 
+          localStorageUtil.getCountOneProduct(id)
+          // localStorageUtil.getProductsFlag()
           //! productsPage.render() нельзя вызывать перезапись всего блока при клике при вызове метода добавления товаров в корзину
      }
 
@@ -57,6 +59,16 @@ class Products {
                let activeClass = '';
                let activeText = '';
 
+               //* получить id конкретного товара в localStorage 
+               for (const idItems in productsStore) {
+                    //* получить именно то id по которому нажали 
+                    if (idItems === id) {
+                         //* получить количество выбранного товара 
+                         let countOneProduct = productsStore[id][2]
+                         console.log(countOneProduct, id);
+                    }
+               }
+               
                if (productsStore === null) { // если  не пустой объект тогда 
                     activeText = this.labelRemove;
                     activeClass = ' ' + this.classNameActive; // удаляем верхний слой 
