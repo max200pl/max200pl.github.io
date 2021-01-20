@@ -16,10 +16,10 @@ class Shopping {
                if (productsStore.hasOwnProperty(id)) {
                     //* Выбранные товары 
                     htmlCatalog += `
-                         <tr>
-                              <td class="shopping-element__name">${name}</td>
-                              <td class="shopping-element__price">${price.toLocaleString()} USD</td>
-                              <td class="shopping-element__price">${countOneProduct} Count</td>
+                         <tr class="shopping-element">
+                              <td  aria-label="Name product" class="shopping-element__name">${name}</td>
+                              <td aria-label="Amount" class="shopping-element__price">${countOneProduct}</td>
+                              <td aria-label="Cost" class="shopping-element__price">${price.toLocaleString()} USD</td>
                          </tr>
                     `;
 
@@ -27,22 +27,33 @@ class Shopping {
                     sumCatalog += price;
                };
 
-          }); 
+          });
 
 
 
           const html = `
-          <div class = "shopping-container">
-               <div class="shopping__close" onclick = "shoppingPage.handleClear()"></div>
-               <table>
-                    ${htmlCatalog}
-                    <tr>
-                         <td class="shopping-element__name">Сумма товаров:</td>
-                         <td class="shopping-element__price">${sumCatalog.toLocaleString()} USD</td>
-                    </tr>
-               </table>
-          </div>
+          <div class="shopping__background">
+               <div class = "shopping-container">
+                    <div class = "shopping__header">Корзина товаров</div>
+                    <div class="shopping__close" onclick = "shoppingPage.handleClear()"></div>
 
+                    <table>
+                         <thead>
+                              <th  class="shopping-head__first">Name product</th>
+                              <th>Amount</th>
+                              <th>Cost</th>
+                         </thead>
+                         <tbody>
+                              ${htmlCatalog}
+                
+                              <td class="shopping-footer__name" colspan="2" style="text-align:right">ИТОГО:</td>
+                              <td class="shopping-footer__sumPrice" style="text-align:right">${sumCatalog} USD</td>
+                       
+                         </tbody>
+                    </table>
+                   
+               </div>
+          </div>
           `;
           ROOT_SHOPPING.innerHTML = html;
      }

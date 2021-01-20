@@ -5,7 +5,6 @@
     flex-basis: calc(33.3333% - 30px);
     max-width: 377px;
   }
-
 }
 
 /* Large Devices, Wide Screens */
@@ -14,7 +13,6 @@
   .container {
     padding: 0 60px;
   }
-
 }
 
 /* Medium Devices, Desktops */
@@ -39,7 +37,6 @@
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 700px) {
-
 
   .header__inner {
     min-height: 60px;
@@ -73,8 +70,6 @@
     display: none;
   }
 
-
-
   .slider-miniature {
     display: flex;
     justify-content: center;
@@ -90,8 +85,12 @@
     margin: 10px;
   }
 
+  #shopping table {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size:1000px;
 
-
+}
 }
 
 /* Extra Small Devices, Phones */
@@ -102,4 +101,4 @@
 }
 
 /* Custom, iPhone Retina */
-@media only screen and (max-width: 320px) {}
+@media only screen and (min-width: 100px) and (max-width: 320px){}
