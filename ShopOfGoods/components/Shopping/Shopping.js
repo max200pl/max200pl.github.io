@@ -46,8 +46,8 @@ class Shopping {
                          <tbody>
                               ${htmlCatalog}
                 
-                              <td class="shopping-footer__name" colspan="2" style="text-align:right">ИТОГО:</td>
-                              <td class="shopping-footer__sumPrice" style="text-align:right">${sumCatalog} USD</td>
+                              <td class="shopping-footer__name" colspan="2">ИТОГО:</td>
+                              <td class="shopping-footer__sumPrice">${sumCatalog} USD</td>
                        
                          </tbody>
                     </table>
