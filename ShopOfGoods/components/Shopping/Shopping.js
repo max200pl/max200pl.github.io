@@ -12,8 +12,8 @@ class Shopping {
           CATALOG.forEach(({ id, name, price }) => { // переберем все объекты каталога и делаем деструктуризацию
                //* получение количества выбранного товара 
                let countOneProduct = productsStore[id][2]
-
-               if (productsStore.hasOwnProperty(id)) {
+             
+               if (productsStore.hasOwnProperty(id) && productsStore[id][2]>0) {
                     //* Выбранные товары 
                     htmlCatalog += `
                          <tr class="shopping-element">
@@ -51,7 +51,11 @@ class Shopping {
                        
                          </tbody>
                     </table>
-                   
+
+                    <button class="shopping-footer__buy-btn">
+                             Оформить заказ
+                    </button>
+
                </div>
           </div>
           `;
