@@ -1,0 +1,252 @@
+body{
+     margin: 0;
+     
+}
+
+h4{
+     text-indent: 10px;
+}
+
+/**Display flex*/
+
+header{
+     display: flex;
+     background-color: green;
+     grid-column: span 12;
+}
+
+header> div:nth-child(3){
+     margin-left: auto;
+} 
+
+.container{
+     display: grid;
+
+    /** Naming and Positioning Items by Grid Areas
+     grid-template-areas: "head . . . . . . . . . . ."
+     "nav nav main main main main main main main main main main "
+     "footer footer footer footer footer footer footer footer footer footer footer footer";
+     **           OR   */
+     grid-template-rows: 50px auto auto;
+     grid-template-columns: repeat(12, 1fr); 
+}
+
+main{
+     display: grid;
+     grid-column: span 10;
+     background-color: yellow;
+}
+
+aside{
+     grid-column: span 2;
+     background: rgb(20, 83, 119);
+}
+
+/**======================CONTENT============================*/
+
+.content-container{
+     display: grid;
+
+     grid-template-rows: minmax(auto, auto); /** height-width one rows*/ 
+     grid-template-columns: minmax(auto, auto) auto auto;
+     /**
+     ** minmax(auto, 80%) - first columns
+     ** 1fr - second column 
+     ** 3 em - thread columns
+     */ 
+
+     grid-gap: 2px; /** margin between columns and rows*/
+     /**
+     ** grid-row-gap: 10px;  
+     ** grid-columns-gap: 10px;
+     */ 
+
+    
+     background:yellow; 
+}
+
+.content-container > .content__row{
+     margin: 10px;
+     background:#76BF4A;
+}
+
+/*!Content-position*/
+
+.content-position{
+     display: grid;
+     grid-template-rows: minmax(auto, auto);
+     grid-template-columns: minmax(auto, auto) auto  auto;
+}
+
+.content-position__position-items{
+     text-align: center;
+     vertical-align: middle;
+     padding: 5px;
+     margin: 10px; 
+     background-color: #1b79d6;
+}
+
+.position-items1{
+     grid-area: 2/3/3/4;
+
+/**   grid-row-start: 2;
+ **   grid-row-end: 3;
+ **   grid-column-start: 3;
+ **   grid-column-end: 4; 
+          OR
+      grid-row: 2/3;
+      grid-column: 3/4 
+*/
+}
+
+.spanning-across2{
+     grid-column-start: 1;
+     grid-column-end: 4;
+}
+
+.spanning-across3{
+     grid-row-start: 2;
+     grid-row-end: span 4;
+}
+
+/*!Content-implicit*/
+
+.content-implicit{
+     display: grid;
+/** first line height 100px next line height - 60px */
+     grid-template-rows: 40px;
+     grid-auto-rows:     60px;
+
+/** Cried gird ROW - first line - 100px next line - 60px*/
+    /* grid-auto-flow: row;*/
+           /*OR*/
+/** Cried gird COLUMN - first line - 100px next line - 60px*/
+     grid-template-columns: repeat(3, 1fr);   
+     /* grid-auto-columns: 1fr;*/
+            /* OR*/
+     /* grid-auto-flow:    column;*/
+
+}
+
+/*!Layering Grid Items*/
+
+.content-implicit__items{
+     border:      1px solid #930000;
+     text-align:  center;
+     padding-top: 10px;
+}
+
+.content-layering__item-1,
+.content-layering__item-2 {
+  grid-row-start:  1;
+  grid-column-end: span 2;
+}
+
+.content-layering__item-1 { 
+     grid-column-start: 1;
+      z-index: 1;
+      background-color:#1b78d6fa;
+}
+.content-layering__item-2 { 
+     background-color:#77bf4ab7;
+     grid-column-start: 2;
+     z-index: 2;
+}
+
+/*!Content-aligning*/
+
+.content-aligning{
+     display: grid;
+     grid-template-rows: 100px 100px;
+     grid-template-columns: 1fr 1fr;
+     grid-template-areas: "content content";
+     
+     /**aligning items in his block*/
+     justify-items: center;  /** stretch - default*/
+     align-items: center; 
+     
+
+     border-bottom: 1px solid red;
+     border-top: 1px solid red;
+
+     margin-bottom: 10px;
+     text-align: center;
+}
+
+.content-aligning__items{
+     padding: 30px;
+     border: 1px solid #694abf ;
+     margin: 2px;
+}
+
+.content-aligning__item-1{
+     grid-area: content; /** filling all area*/
+     justify-self: right;
+}
+
+.content-aligning__item-2{
+     justify-self:stretch;
+}
+
+/*!Aligning Grid Tracks*/
+
+.content-aligningTracks{
+     display: grid;
+     grid-template-columns: repeat(4, auto);
+     grid-template-rows: repeat(4, auto);
+     grid-gap: 0.1em;
+     justify-content: space-around; /**between the columns*/ 
+     align-content: space-evenly /**between the rows*/ ;
+}
+
+/**=====================FOOTER==============================*/
+
+footer{
+     grid-column: span 12;
+     background-color: #ff9d00;
+}
+
+/*!Naming Grid lines*/
+
+.footer-content{
+     display: grid;
+     /* grid-template-rows:    [row-start row-1-start] 1fr [row-1-end row-2-start] 1fr [row-end];
+     /* grid-template-columns: [col-start] 1fr [col-2-start] 1fr [col-3-start] 1fr [col-end];
+
+/*!Repeat blocks*/
+/*   grid-template-rows: repeat(3, auto);
+     /** repeat(4, auto) - four block and hight - auto 
+     grid-template-columns: repeat(3, auto);
+     /** repeat(3, auto) - four block and hight - auto 
+*/
+
+/**Repeat blocks with same name*/
+     grid-template-rows: repeat(3, [row-start] auto [row-end]);
+     grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
+}
+
+.footer-content> .footer__block{
+     text-align: center;
+     vertical-align: middle;
+     margin: 10px;
+     border: 1px solid #005293;
+     background-color: #48aaf7;
+}
+
+ /*!Properties name grid line*/
+.footer__block-1{
+    
+/**    
+ **   grid-row-start: row-2-start;
+ **   grid-row-end: row-end;
+ **   grid-column-start: col-2-start; 
+ **   grid-column-end:  col-end; 
+             OR
+      grid-row:    row-2-start / 4;
+      grid-column: col-2-start / col-end; 
+             OR */
+     grid-row:    row-end / row-end 2;
+     grid-column: col-start 2 / col-end 3;
+}
+
+
