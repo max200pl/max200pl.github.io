@@ -139,7 +139,7 @@ aside{
 .content-layering__item-1,
 .content-layering__item-2 {
   grid-row-start:  1;
-  grid-column-end: span 2;
+  grid-column-end: span 2; /** start two column for column-end */
 }
 
 .content-layering__item-1 { 
@@ -159,7 +159,8 @@ aside{
      display: grid;
      grid-template-rows: 100px 100px;
      grid-template-columns: 1fr 1fr;
-     grid-template-areas: "content content";
+     grid-template-areas: "block1 block1"
+                          "footer footer";
      
      /**aligning items in his block*/
      justify-items: center;  /** stretch - default*/
@@ -180,7 +181,7 @@ aside{
 }
 
 .content-aligning__item-1{
-     grid-area: content; /** filling all area*/
+     grid-area: block1; /** filling area name: block1  */
      justify-self: right;
 }
 
@@ -192,8 +193,8 @@ aside{
 
 .content-aligningTracks{
      display: grid;
-     grid-template-columns: repeat(4, auto);
-     grid-template-rows: repeat(4, auto);
+     grid-template-columns: repeat(4, auto); /** auto - automatic width block */
+     grid-template-rows: repeat(4, auto); 
      grid-gap: 0.1em;
      justify-content: space-around; /**between the columns*/ 
      align-content: space-evenly /**between the rows*/ ;
