@@ -1,0 +1,2 @@
+export const API_URL = 'https://gist.githubusercontent.com/max200pl/a9d71924a75c18deed1292d13b42f263/raw/2baff97d55a48b2e58bebc64d45468927aeb54d3/catalog.json';
+export const API_KEY = '' // в случае необходимости 
