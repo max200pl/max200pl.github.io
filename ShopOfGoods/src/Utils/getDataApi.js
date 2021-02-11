@@ -1,5 +1,5 @@
-import axios from "axios";
-import {API_URL, API_KEY} from '../constants/api';
+import axios from 'axios';
+import { API_KEY } from '../constants/api';
 
 /**
  ** -- создаем класс который будет возвращать данные с сервера 
@@ -16,22 +16,23 @@ import {API_URL, API_KEY} from '../constants/api';
  **     6.1 импортируем regenerator-runtime 
  ** -- создаем самовзрывающуюся асинхронную функцию (async()=>{})()
  ** -- ожидаем данные с сервера через конструкцию async 
- */
+*/
 
 class GetDataApi {
-     async getData(url) {
-         try {
-             const response = await axios.get(url, {
-                 params: { // объект дополнительных параметров для формирования ключа доступа 
-                     apikey: API_KEY
-                 }
-             })
-             return response.data
-         } catch (error) {
-             console.log(error.message);
-             return false;
-         }
-     }
- }
- 
+    async getData(url) {
+        try {
+            const response = await axios.get(url, {
+                params: {
+                    apikey: API_KEY
+                }
+            });
+
+            return response.data
+        } catch (error) {
+            console.log(error.message);
+            return false;
+        }
+    }
+}
+
 export const getDataApi = new GetDataApi();

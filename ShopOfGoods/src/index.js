@@ -1,11 +1,15 @@
 
-import {API_URL} from './constants/api';      // import URL git gist 
 import "regenerator-runtime/runtime.js";      // import настраиваем асинхронные функции для axios
-import {getDataApi} from './utils/getDataApi' // import метода экземпляра класса new GetDataApi()
+import App from './components/App'
 
-(async () => { // await response server
-    const data = getDataApi.getData(API_URL); // return promise 
-    console.log(data);
+/**
+ ** -- App.render() асинхронная функция чтобы дождаться ее исп. ключевое слово await
+ ** -- 
+ */
+(async () => { 
+
+    await App.render(); // await response server
+    
 })();
 
 
