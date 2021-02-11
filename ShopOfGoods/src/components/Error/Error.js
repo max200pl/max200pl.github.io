@@ -1,4 +1,4 @@
-class Error{
+/* class Error{
      render(){
           const html =`
                <div  class = "error-container">
@@ -12,4 +12,4 @@ class Error{
      }
 }
 
-const errorPage = new Error();
+const errorPage = new Error(); */

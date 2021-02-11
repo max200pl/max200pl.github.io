@@ -1,23 +1,22 @@
-import { API_URL} from '../../constants/api';
-import { getDataApi } from '../../utils/getDataApi';
 
+import Products from '../Products';
 import './App.css';
+
 /**
- ** -- импортируем полностью файл import './App.css';
- ** -- создание класса 
  ** -- export по умолчанию (default) значение может быть только одно 
- ** -- при получении данных await getDataApi.getData исп. await значит указываем async render()
- ** -- 
- ** -- 
- ** -- 
- ** -- 
+ ** -- импортируем экземпляр класса Products
+ ** -- импортируем полностью файл import './App.css';
+ ** -- асинхронно вызываем в компоненте Products метод рендер 
+ ** -- в App.js промежуточный компонент для рендеринга всех компонентов 
+ ** -- в App.css основные стили приложения 
+
 */
 
 class App {
     async render() {
-        const data = await getDataApi.getData(API_URL);
-        console.log(data);
+        await Products.render()
     }
+
 }
 
 export default new App();

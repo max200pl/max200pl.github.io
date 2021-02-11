@@ -1,4 +1,4 @@
-class Shopping {
+/* class Shopping {
      handleClear() {
           ROOT_SHOPPING.innerHTML = '';
      }
@@ -64,4 +64,4 @@ class Shopping {
 
 }
 
-const shoppingPage = new Shopping();
+const shoppingPage = new Shopping(); */

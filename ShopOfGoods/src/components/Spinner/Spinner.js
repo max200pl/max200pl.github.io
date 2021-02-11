@@ -1,4 +1,4 @@
-class Spinner{
+/* class Spinner{
      handleClear(){
           ROOT_SPINNER.innerHTML = '';
      }
@@ -15,4 +15,4 @@ class Spinner{
      }
 }
 
-const spinnerPage = new Spinner();
+const spinnerPage = new Spinner(); */
