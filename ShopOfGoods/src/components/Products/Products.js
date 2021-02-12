@@ -16,6 +16,12 @@ import classes from './Products.css';
           -- навешиваем класс - li.classList.add(products__item)
           -- навешиваем событие - addEventListener('click', function(){})  
           -- накидываем на узел в HTML -  ROOT__INDEX.appendChild(li);
+  ** -- формирования URL при нажатии на products применяя конкатенацию строк (В проекте не используем)
+       -- const uri = API_URL + URL_COMICS + '/' + id + '/' + URL_CHARACTERS;    
+  ** -- добавление data- атрибута для нахождения конкретной карточки и формирования нужных данных 
+       -- указываем атрибут в <div data-id = ${id}></div>
+       -- при сформировавшимся DOM находим data-id по циклу 
+          -- element.dataAttribute('data-id')
 */
 class Products {
      /*  constructor() {
@@ -44,10 +50,10 @@ class Products {
                     activeClass = ' ';
                }
                */
-               
+
                htmlCatalog += `    
                <!-- ITEM-Product -->
-               <div id="product" class="${classes.product__item}">
+               <div id="product" data-id="${id}" class="${classes.product__item}">
                     <div class=" ${classes.slider}">
                          <div class="${classes.slider__main}">
                               <img class="${classes.slider__img}" src="${img}" alt="">
@@ -130,11 +136,12 @@ class Products {
             -- проходим циклом по element 
             -- навешиваем событие клика на каждый element
             -- import в index.js при готов DOM вызываем Products.eventListener()
-     */   
+     */
      eventListener() {
           document.querySelectorAll('#product').forEach(element => {
+               const id = element.getAttribute('data-id');
                element.addEventListener('click', () => {
-                    console.log('1');
+                    console.log(id);
                })
           });
      }
