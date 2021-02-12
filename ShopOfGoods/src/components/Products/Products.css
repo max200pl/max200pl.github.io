@@ -1,5 +1,5 @@
 
-/* Item-product */
+/* Item-product__item */
 
 .products__container {
      width: 100%;
@@ -16,7 +16,7 @@
      justify-content: flex-start;
 }
 
-.product {
+.product__item {
      display: flex;
      flex-direction: column;
      justify-content: space-between;
@@ -258,7 +258,7 @@
 /*==========  Desktop First Method  ==========*/
 
 @media only screen and (max-width: 1550px) {
-     .product{
+     .product__item{
        flex-basis: calc(33.3333% - 30px);
        max-width: 377px;
      }
@@ -286,7 +286,7 @@
        margin: 60px -15px 0;
      }
    
-     .product {
+     .product__item {
        flex-basis: calc(50% - 30px);
      }
    }
@@ -307,7 +307,7 @@
        display: none;
      }
    
-     .product {
+     .product__item {
        flex-basis: calc(100% - 30px);
        max-width: 377px;
        margin: 15px auto;

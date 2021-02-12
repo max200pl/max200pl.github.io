@@ -8,9 +8,14 @@ import classes from './Products.css';
  ** -- при получении данных await getDataApi.getData исп. await значит указываем async render()
  ** -- data.forEach({деструктуризация объекта})
  ** -- формирование URL пути изображения
-       --  const imgSrc = path + '/' + 'standard_xLarge' + '.' + extension
- ** -- 
- ** -- 
+       -- const imgSrc = path + '/' + 'standard_xLarge' + '.' + extension
+ ** -- обработка событий в модулях так работает React
+       -- inline onClick не навешивают в модульной структуре: функции работают в локальной области модуля 
+       -- при работе с addEventListener нужны уже готовые элементы:
+          -- создаем элемент - document.createElement('li')
+          -- навешиваем класс - li.classList.add(products__item)
+          -- навешиваем событие - addEventListener('click', function(){})  
+          -- накидываем на узел в HTML -  ROOT__INDEX.appendChild(li);
 */
 class Products {
      /*  constructor() {
@@ -42,7 +47,7 @@ class Products {
                
                htmlCatalog += `    
                <!-- ITEM-Product -->
-               <div id="product"  class="${classes.product}">
+               <div id="product" class="${classes.product__item}">
                     <div class=" ${classes.slider}">
                          <div class="${classes.slider__main}">
                               <img class="${classes.slider__img}" src="${img}" alt="">
@@ -58,44 +63,50 @@ class Products {
                          <div class="${classes.price__name}">
                               ${name}
                          </div>
-
+          
                          <div class="${classes.price__list}">
                               <div id="price__discountCost" class="${classes.price__discountCost}">
                                    <span>2150р</span>
                               </div>
                          </div>
 
-                         <div id="cost" class="${classes.price__cost}"  data-cost="cost">
+                         <div id="cost" class="${classes.price__cost}" data-cost="cost">
                               ${price.toLocaleString()} USD
                          </div>
                     </div>
                     <!-- /price -->
                     <!-- card-footer -->
                     <div class="${classes.product__footer}">
-                         <button class="${classes.product__footer__buyBtn}" data-hide onClick="productsPage.hideLayer(this)">
-                             Начать оформление
+                         <button class="${classes.product__footer__buyBtn}" data-hide ">
+                         <!-- onClick=" productsPage.hideLayer(this) -->
+                              Начать оформление
                          </button>
                          <div class="${classes.product__footer__trade}">
                               <div class="${classes.trade__tuning}">
-                                   <button id="trade__tuning__buttonCountMinus" value="-" onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', false);" >
-                                        <img class="trade__tuning__delete" src="images/item-card/card-footer/remove.svg" alt="delete">
+                                   <button id="trade__tuning__buttonCountMinus" value="-">
+                                        <!-- onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', false);"-->
+                                        <img class="trade__tuning__delete" src="images/item-card/card-footer/remove.svg"
+                                             alt="delete">
                                    </button>
                                    <div>
                                         <span id="${classes.trade__tuning__countProductNumber}"
                                              class="${classes.trade__tuning__quantitySum}">${countOneProduct} шт.</span>
-                                        <img class="${classes.trade__tuning__quantityLoad}" src="images/item-card/card-footer/spinner.svg" alt="">
-
-                                        <button value="+"
-                                             onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', true);">
-                                             <img class="trade__tuning__add" src="images/item-card/card-footer/add.svg" alt="">
+                                        <img class="${classes.trade__tuning__quantityLoad}"
+                                             src="images/item-card/card-footer/spinner.svg" alt="">
+          
+                                        <button value="+">
+                                             <! -- onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', true);"
+                                                  -->
+                                                  <img class="trade__tuning__add" src="images/item-card/card-footer/add.svg"
+                                                       alt="">
                                         </button>
 
-                                        <button class="${classes.trade__tuning__buy}"
-                                             onclick="productsPage.changeContentButton(this, '${id}');">
+                                        <button class="${classes.trade__tuning__buy}">
+                                             <!-- onclick="productsPage.changeContentButton(this, '${id}')"; -->
                                              <span>${activeText}</span>
                                         </button>
-                                   </div> 
-                              </div> 
+                                   </div>
+                              </div>
                          </div><!-- /card__footer__trade -->
                     </div><!--/card__footer -->
                </div><!-- /ITEM__CARD -->
@@ -111,6 +122,21 @@ class Products {
           `;
 
           ROOT_PRODUCTS.innerHTML = htmlWrapper;
+     }
+
+     /**
+        ** -- Создаем метод eventListener()
+            -- находим элемент уже в готовом DOM 
+            -- проходим циклом по element 
+            -- навешиваем событие клика на каждый element
+            -- import в index.js при готов DOM вызываем Products.eventListener()
+     */   
+     eventListener() {
+          document.querySelectorAll('#product').forEach(element => {
+               element.addEventListener('click', () => {
+                    console.log('1');
+               })
+          });
      }
 
      /*  render() {

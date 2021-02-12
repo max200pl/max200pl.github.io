@@ -1,6 +1,7 @@
 
 import "regenerator-runtime/runtime.js";      // import настраиваем асинхронные функции для axios
 import App from './components/App'
+import Products from './components/Products'
 
 /**
  ** -- App.render() асинхронная функция чтобы дождаться ее исп. ключевое слово await
@@ -9,6 +10,7 @@ import App from './components/App'
 (async () => { 
 
     await App.render(); // await response server
+    Products.eventListener(); //обработка события на элемент ".product__item"
     
 })();
 
