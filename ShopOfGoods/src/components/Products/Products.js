@@ -2,7 +2,7 @@ import { API_URL } from '../../constants/api';
 import { getDataApi } from '../../utils/getDataApi';
 import { ROOT_PRODUCTS } from '../../constants/root';
 
-import './Products.css';
+import classes from './Products.css';
 
 /**
  ** -- при получении данных await getDataApi.getData исп. await значит указываем async render()
@@ -39,72 +39,72 @@ class Products {
                     activeClass = ' ';
                }
                */
-
+               
                htmlCatalog += `    
                <!-- ITEM-Product -->
-               <div id="product" class="product">
-                    <div class="slider">
-                         <div class="slider-main">
-                              <img class="slider-main__img" src="${img}" alt="">
-                              <ul class="slider-dots slider-dots--mb__none ">
-                                   <li class="dots-active"></li>
+               <div id="product"  class="${classes.product}">
+                    <div class=" ${classes.slider}">
+                         <div class="${classes.slider__main}">
+                              <img class="${classes.slider__img}" src="${img}" alt="">
+                              <ul class="${classes.slider__dots}" mb__none">
+                                   <li class="${classes.dots__active}"></li>
                                    <li></li>
                                    <li></li>
                               </ul>
                          </div>
                     </div>
                     <!-- price -->
-                    <div class="price">
-                         <div class="price__name">
+                    <div class=" ${classes.price}">
+                         <div class="${classes.price__name}">
                               ${name}
                          </div>
 
-                         <div class="price__list">
-                              <div id="price__discountCost" class="price__discountCost">
+                         <div class="${classes.price__list}">
+                              <div id="price__discountCost" class="${classes.price__discountCost}">
                                    <span>2150р</span>
                               </div>
                          </div>
 
-                         <div class="price__cost" id="cost" data-cost="cost">
+                         <div id="cost" class="${classes.price__cost}"  data-cost="cost">
                               ${price.toLocaleString()} USD
                          </div>
                     </div>
                     <!-- /price -->
                     <!-- card-footer -->
-                    <div class="product-footer">
-                         <button class="product-footer__buy-btn" data-hide onClick="productsPage.hideLayer(this)">
+                    <div class="${classes.product__footer}">
+                         <button class="${classes.product__footer__buyBtn}" data-hide onClick="productsPage.hideLayer(this)">
                              Начать оформление
                          </button>
-                         <div class="product-footer__trade">
-                              <div class="trade-tuning">
-                                   <button id="trade-tuning__buttonCountMinus" value="-" onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', false);" >
-                                        <img class="trade-tuning__delete" src="images/item-card/card-footer/remove.svg" alt="delete">
+                         <div class="${classes.product__footer__trade}">
+                              <div class="${classes.trade__tuning}">
+                                   <button id="trade__tuning__buttonCountMinus" value="-" onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', false);" >
+                                        <img class="trade__tuning__delete" src="images/item-card/card-footer/remove.svg" alt="delete">
                                    </button>
                                    <div>
-                                        <span id="trade-tuning__countProductNumber"
-                                             class="trade-tuning__quantity-sum">${countOneProduct} шт.</span>
-                                        <img class="trade-tuning__quantity-load" src="images/item-card/card-footer/spinner.svg" alt="">
+                                        <span id="${classes.trade__tuning__countProductNumber}"
+                                             class="${classes.trade__tuning__quantitySum}">${countOneProduct} шт.</span>
+                                        <img class="${classes.trade__tuning__quantityLoad}" src="images/item-card/card-footer/spinner.svg" alt="">
 
-                                        <button id="trade-tuning__buttonCountPlus" value="+"
+                                        <button value="+"
                                              onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', true);">
-                                             <img class="trade-tuning__add" src="images/item-card/card-footer/add.svg" alt="">
+                                             <img class="trade__tuning__add" src="images/item-card/card-footer/add.svg" alt="">
                                         </button>
 
-                                        <button class="trade-tuning__buy"
+                                        <button class="${classes.trade__tuning__buy}"
                                              onclick="productsPage.changeContentButton(this, '${id}');">
                                              <span>${activeText}</span>
                                         </button>
                                    </div> 
                               </div> 
-                         </div><!-- /card-footer__trade -->
-                    </div><!--/card-footer -->
-               </div><!-- /ITEM-CARD -->
+                         </div><!-- /card__footer__trade -->
+                    </div><!--/card__footer -->
+               </div><!-- /ITEM__CARD -->
                `
           });
 
           const htmlWrapper = `
-               <div class= "products__container">
-                    <div class="products__cards">
+               <div class= "${classes.products__container}">
+                    <div class="${classes.products__cards}">
                               ${htmlCatalog}
                     </div>
                </div>  

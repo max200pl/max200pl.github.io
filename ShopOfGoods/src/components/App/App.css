@@ -2,7 +2,6 @@
      --color-unaccented: #464d55;
      --color-white: #E5E5E5;
      --color-blue: #0b09aa;
-     
 }
 
 *, ::before, ::after {
@@ -27,6 +26,14 @@
 }
 ::-webkit-scrollbar-track{
      background-color: var(--color-unaccented);
+}
+
+:global(.mb__none) {
+     display: none;
+}
+
+:global(.mb__none) {
+     display: none;
 }
 
 body {
