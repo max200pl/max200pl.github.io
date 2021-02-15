@@ -1,14 +1,14 @@
-.error-container{
+.error__container{
      display: flex;
      justify-content: center;
-     top: 20%;
-     height: 250x;
+     align-items: center;
      width: 100%;
+     height: 100vh;
 }
 
-.error-message{
+.error__message{
      min-width: 350px;
      padding: 20px 40px;
      text-align: center;
-     background-color:#c55b5b;;
+     background-color:#5baac5;;
 }

@@ -4,8 +4,11 @@ import App from './components/App'
 import Products from './components/Products'
 
 /**
+ ** -- настраиваем асинхронные функции для axios
+       -- импортируем regenerator-runtime 
+ ** -- создаем самовзрывающуюся асинхронную функцию (async()=>{})()
+ ** -- ожидаем данные с сервера через конструкцию async 
  ** -- App.render() асинхронная функция чтобы дождаться ее исп. ключевое слово await
- ** -- 
  */
 (async () => { 
 

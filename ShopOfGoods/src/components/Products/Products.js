@@ -2,10 +2,11 @@ import { API_URL } from '../../constants/api';
 import { getDataApi } from '../../utils/getDataApi';
 import { ROOT_PRODUCTS } from '../../constants/root';
 
+import Error from '../Error'
+
 import classes from './Products.css';
 
 /**
- ** -- при получении данных await getDataApi.getData исп. await значит указываем async render()
  ** -- data.forEach({деструктуризация объекта})
  ** -- формирование URL пути изображения
        -- const imgSrc = path + '/' + 'standard_xLarge' + '.' + extension
@@ -28,6 +29,8 @@ import classes from './Products.css';
        -- не используются идентификаторы, и теги для для стилей 
        -- добавляется хэш внутри каждого модуля  { product__container : product__container_ader123 
                                                   product__item:             product__item_ader123}
+  ** -- обработка ошибок 
+       -- если data true = render Products; data false = render Error 
 */
 class Products {
      /*  constructor() {
@@ -36,8 +39,7 @@ class Products {
            this.labelAdd = 'Оформить' // добавить в корзину
       } */
 
-     async render() {
-          const data = await getDataApi.getData(API_URL);
+     renderProducts(data){
           let htmlCatalog = '';
 
           data.forEach(({ id, name, img, price }) => {
@@ -135,7 +137,19 @@ class Products {
 
           ROOT_PRODUCTS.innerHTML = htmlWrapper;
      }
+/**
+ ** -- при получение асинхронно данных await через метод getDataApi.getData 
+       --  исп. await указываем async render()
+ ** -- обработка ошибок 
+       -- data: 
+               true = render 
+               false = Error.render 
+ */
+     async render() {
+          const data = await getDataApi.getData(API_URL);
 
+          data?this.renderProducts(data):Error.render()
+     }
      /**
         ** -- Создаем метод eventListener()
             -- находим элемент уже в готовом DOM 
