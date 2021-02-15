@@ -47,17 +47,27 @@ body {
 
      background-color: var(--color-white);
 }
+:global(.img-contain){
+     height: auto;
+     object-fit: contain;
+     object-position: center;
+}
 
-button {
+:global(.img-cover){
+     height: auto;
+     object-fit: cover;
+     object-position: center;
+}
+
+:global(.btn) {
      padding: 0;
      border: none;
+     outline: none;
      font: inherit;
      color: inherit;
-     background-color: transparent;
      cursor: pointer;
 }
 
-
-.hide {
+:global(.hide) {
      display: none;
 }

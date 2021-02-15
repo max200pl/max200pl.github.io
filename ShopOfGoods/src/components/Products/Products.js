@@ -22,6 +22,12 @@ import classes from './Products.css';
        -- указываем атрибут в <div data-id = ${id}></div>
        -- при сформировавшимся DOM находим data-id по циклу 
           -- element.dataAttribute('data-id')
+  ** -- работа с модулями CSS 
+       -- импортируется конкретный объект 
+       -- объект присваивается переменной import classes
+       -- не используются идентификаторы, и теги для для стилей 
+       -- добавляется хэш внутри каждого модуля  { product__container : product__container_ader123 
+                                                  product__item:             product__item_ader123}
 */
 class Products {
      /*  constructor() {
@@ -83,13 +89,13 @@ class Products {
                     <!-- /price -->
                     <!-- card-footer -->
                     <div class="${classes.product__footer}">
-                         <button class="${classes.product__footer__buyBtn}" data-hide ">
+                         <button class=" btn ${classes.product__footer__buyBtn}" data-hide ">
                          <!-- onClick=" productsPage.hideLayer(this) -->
                               Начать оформление
                          </button>
                          <div class="${classes.product__footer__trade}">
                               <div class="${classes.trade__tuning}">
-                                   <button id="trade__tuning__buttonCountMinus" value="-">
+                                   <button id="trade__tuning__buttonCountMinus" class="btn" value="-">
                                         <!-- onclick="productsPage.handleSetLocationStorage('${id}', '${name}', '${price}', false);"-->
                                         <img class="trade__tuning__delete" src="images/item-card/card-footer/remove.svg"
                                              alt="delete">
