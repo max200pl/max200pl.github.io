@@ -2,6 +2,8 @@ import { API_URL } from '../../constants/api';
 import { getDataApi } from '../../utils/getDataApi';
 import { ROOT_PRODUCTS } from '../../constants/root';
 
+import CharacterModal from '../CharacterModal'
+
 import Error from '../Error'
 
 import classes from './Products.css';
@@ -152,16 +154,17 @@ class Products {
      }
      /**
         ** -- Создаем метод eventListener()
-            -- находим элемент уже в готовом DOM 
-            -- проходим циклом по element 
-            -- навешиваем событие клика на каждый element
+            -- находим элемент уже в готовом DOM (.querySelectorAll)
+            -- проходим циклом по element (.forEach)
+            -- навешиваем событие клика на каждый element (.addEventListener)
             -- import в index.js при готов DOM вызываем Products.eventListener()
+        ** -- Вызываем модальное окно CharacterModal по клику элемента 
      */
      eventListener() {
           document.querySelectorAll('#product').forEach(element => {
                const id = element.getAttribute('data-id');
                element.addEventListener('click', () => {
-                    console.log(id);
+                    CharacterModal.render(id)
                })
           });
      }
