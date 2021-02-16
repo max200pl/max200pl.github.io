@@ -1,1 +1,1 @@
-import { default } from './CharacterModal';
+export { default } from './CharacterModal';

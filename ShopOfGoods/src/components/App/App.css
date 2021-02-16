@@ -68,6 +68,12 @@ body {
      cursor: pointer;
 }
 
+:global(.btn-contin){
+     background-size: contain;
+     background-repeat: no-repeat;
+     background-position: center center;
+}
+ 
 :global(.hide) {
      display: none;
 }

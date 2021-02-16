@@ -50,6 +50,8 @@ class Products {
                let activeText = '';
                // получение количества выбранного товара 
                let countOneProduct = 0 // productsStore[id][2]
+               
+               //const uri = API_URL + URL_COMICS + '/' + id + '/' + URL_CHARACTERS;
 
                // получить id конкретного товара в localStorage 
                /*   if (productsStore === null) { // если  не пустой объект тогда 
@@ -139,18 +141,18 @@ class Products {
 
           ROOT_PRODUCTS.innerHTML = htmlWrapper;
      }
-/**
- ** -- при получение асинхронно данных await через метод getDataApi.getData 
-       --  исп. await указываем async render()
- ** -- обработка ошибок 
-       -- data: 
-               true = render 
-               false = Error.render 
- */
+     /**
+      ** -- при получение асинхронно данных await через метод getDataApi.getData 
+            --  исп. await указываем async render()
+      ** -- обработка ошибок 
+            -- data: 
+                    true = render 
+                    false = Error.render 
+      */
      async render() {
           const data = await getDataApi.getData(API_URL);
 
-          data?this.renderProducts(data):Error.render()
+          data ? this.renderProducts(data) : Error.render()
      }
      /**
         ** -- Создаем метод eventListener()
