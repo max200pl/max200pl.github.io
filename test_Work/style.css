@@ -1,0 +1,196 @@
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+	color: #000;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+.container {
+	width: 100%;
+	max-width: 1220px;
+	padding: 0 60px;
+	margin: 0 auto;
+}
+
+.contact {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	padding-bottom: 94px;
+}
+
+
+/* CONTACT__FORM */
+
+.contact__form {
+	max-width: 504px;
+	min-width: 345px;
+	border: 1px solid #E4E5ED;
+	margin-top: 62px;
+	padding: 20px 16px 19px 20px;
+	border-radius: 4px;
+	background: #fff;
+	letter-spacing: normal;
+}
+
+.contact__form-title {
+	margin: 0 0 20px;
+	font-family: TT Interfaces;
+	color: #15193F;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 0.9;
+	letter-spacing: -0.035em;
+}
+
+.form__group {
+	font-family: SF Pro Display;
+	padding-bottom: 8px;
+}
+
+.form__group:nth-child(4) {
+	padding-bottom: 0px;
+}
+
+.form__input,
+.form__textarea,
+.form__select {
+	padding: 13px 14px;
+	border: 1px solid #E4E5ED;
+	border-radius: 4px;
+	width: 100%;
+}
+
+.form__btn {
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	border: 1px solid #0038FF;
+	border-radius: 4px;
+	background-color: #0038FF;
+	padding: 13px 0;
+	font-family: SF Pro Display, sans-serif;
+}
+
+
+/* /CONTACT__FORM */
+
+
+/* CONTACT__FEEDBACK */
+
+.contact__feedback {
+	padding-top: 60px;
+	margin-left: 56px;
+	max-width: 568px;
+}
+
+.contact__feedback-title {
+	max-width: 533px;
+	margin-bottom: 28px;
+	color: #15193F;
+	font-weight: 600;
+	font-size: 48px;
+	line-height: 86%;
+	font-family: TT Interfaces;
+	font-style: normal;
+	/* or 41px */
+	letter-spacing: -0.035em;
+}
+
+.feedback__links {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -14px;
+}
+
+.feedback__links-item {
+	display: flex;
+	align-items: center;
+	min-width: 170px;
+	padding: 12px 15px;
+	margin: 7px;
+	border: 1px solid #E4E5ED;
+	border-radius: 4px;
+}
+
+.feedback__links-item>a {
+	font-family: SF Pro Display, sans-serif;
+	color: #15193F;
+	font-weight: normal;
+	line-height: 120%;
+	font-size: 14px;
+	letter-spacing: -0.01em;
+	margin-left: 9px;
+}
+
+.feedback__links-item>img {
+	display: block;
+}
+
+.feedback__links-item>button {
+	font-family: SF Pro Display, sans-serif;
+	line-height: 0.9;
+	font-size: 14px;
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+}
+
+@media (max-width: 1200px) {
+	.contact__feedback {
+		margin-left: 30px;
+		max-width: 500px;
+	}
+}
+
+@media (max-width: 990px) {
+	.contact {
+		padding-bottom: 20px;
+		justify-content: space-around;
+	}
+	.contact__form {
+		max-width: 345px;
+		margin-top: 30px;
+	}
+	.contact__feedback-title {
+		font-size: 28px;
+	}
+}
+
+@media (max-width: 770px) {
+	.container {
+		padding: 0 15px;
+	}
+	.contact__form {
+		margin-top: 14px;
+	}
+	.contact__feedback {
+		max-width: 345px;
+		margin-left: 0;
+		padding-top: 20px;
+	}
+	.contact__feedback-title {
+		font-size: 28px;
+	}
+	.feedback__links-item {
+		width: 100%;
+	}
+}
