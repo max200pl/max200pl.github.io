@@ -2,13 +2,16 @@
 
 .portfolio {
     display: flex;
+    align-items: stretch;
     flex-wrap: wrap;
     margin: 0 -1rem 2.8rem;
 }
 
 .portfolio__col {
-    flex-basis: 33.33333%;
+    width: 33.33333%;
+    max-height: 380px;
     padding: 1rem;
+   
 
     @media @mobile{
         flex-basis: 50%;

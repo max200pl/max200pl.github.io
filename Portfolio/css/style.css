@@ -549,11 +549,13 @@ body.no-scroll {
 }
 .portfolio {
   display: flex;
+  align-items: stretch;
   flex-wrap: wrap;
   margin: 0 -1rem 2.8rem;
 }
 .portfolio__col {
-  flex-basis: 33.33333%;
+  width: 33.33333%;
+  max-height: 380px;
   padding: 1rem;
 }
 @media (max-width:767px) {
@@ -588,6 +590,7 @@ body.no-scroll {
 }
 .work__image {
   display: block;
+  object-fit: cover;
   width: 100%;
   height: auto;
 }
@@ -1085,7 +1088,7 @@ body.no-scroll {
   border: 0;
   cursor: pointer;
   text-decoration: underline;
-  padding: 0 0 15px 0;
+  padding: 15px 0 15px 0;
   font-family: inherit;
   font-size: 1rem;
   color: #fff;
