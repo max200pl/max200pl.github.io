@@ -2,15 +2,18 @@
 
 .works-modal {
      display: flex;
-     flex-wrap: wrap-reverse;
+    
      justify-content: space-between;
      margin: 0;
+     @media @mobile {
+          flex-wrap: wrap;
+     }
 }
 
 .works-modal__data {
      display: block;
      font-size: 12px;
-     min-width: 292px;
+     min-width: 336px;
      padding-bottom: 20px;
 
      @media @mobile {
@@ -21,7 +24,7 @@
 }
 
 .works-modal__name {
-     font-size: 18px;
+     font-size: 22px;
 }
 .works-modal__specialty {
      padding-top: 8px;
@@ -50,6 +53,7 @@
 
      @media @mobile {
           flex-basis: 55%;
+          padding-bottom: 10px;
      }
 
 
